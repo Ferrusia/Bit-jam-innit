@@ -1,11 +1,40 @@
 [gd_scene format=3 uid="uid://dkg8uak5tt5vc"]
 
+[ext_resource type="Script" uid="uid://c1eo53j8bfisx" path="res://scenes/View/view.gd" id="1_ojhqs"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_6gegx"]
+size = Vector3(11, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ojhqs"]
+size = Vector3(3.2399902, 0.49816513, 1)
 
 [node name="Main_Game" type="Node3D" unique_id=235772255]
 
-[node name="View" type="Camera3D" parent="." unique_id=2081182020]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1235092824]
+transform = Transform3D(-0.55580425, -0.71993834, 0.4156565, 0.38027754, 0.22443435, 0.8972281, -0.7392365, 0.65674806, 0.14903474, 0, 7.7453923, 0)
+shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="View" unique_id=485681068]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8827524)
+[node name="MeshInstance3D" type="CSGBox3D" parent="." unique_id=1294238406]
+transform = Transform3D(1, 0, 0, 0, 4.788, 0, 0, 0, 0.35627115, 0.40249634, 0, -6.8827524)
+size = Vector3(9.335388, 1, 1)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1821136179]
+transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, -4.1171875, 0, -3.8827524)
 mesh = SubResource("BoxMesh_6gegx")
+
+[node name="Bed" type="MeshInstance3D" parent="." unique_id=254058556]
+transform = Transform3D(1.9106855e-15, -4.788, -1.5573107e-08, -4.371139e-08, -2.0929014e-07, 0.35627115, -1, 0, -1.5573107e-08, 0.60914975, -1.0115529, -0.044601917)
+mesh = SubResource("BoxMesh_ojhqs")
+
+[node name="Window_Wall" type="CSGBox3D" parent="." unique_id=152572568]
+transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, 4.895754, 0, -3.1932383)
+size = Vector3(9.328003, 1, 1)
+
+[node name="MeshInstance3D4" type="CSGBox3D" parent="Window_Wall" unique_id=1040086561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6096344, -0.0061645494, -0.23608398)
+operation = 2
+size = Vector3(3.9311218, 0.520874, 3.979004)
+
+[node name="View" type="Camera3D" parent="." unique_id=2081182020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71958566, 0, 1.1155399)
+script = ExtResource("1_ojhqs")
