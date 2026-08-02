@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dkg8uak5tt5vc"]
 
+[ext_resource type="PackedScene" uid="uid://c3yytjkuy2qvp" path="res://scenes/tests/Breathing/breathing and eyes closed .tscn" id="1_ojhqs"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_6gegx"]
 
 [node name="Main_Game" type="Node3D" unique_id=235772255]
@@ -9,3 +11,5 @@
 [node name="MeshInstance3D" type="MeshInstance3D" parent="View" unique_id=485681068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8827524)
 mesh = SubResource("BoxMesh_6gegx")
+
+[node name="UI" parent="." unique_id=1069136006 instance=ExtResource("1_ojhqs")]

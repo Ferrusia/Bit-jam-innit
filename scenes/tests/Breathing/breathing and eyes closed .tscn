@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c3yytjkuy2qvp"]
 
-[ext_resource type="Script" uid="uid://g3uxqpi4w3u8" path="res://breathing bar.gd" id="1_yelyv"]
+[ext_resource type="Script" uid="uid://g3uxqpi4w3u8" path="res://scenes/tests/Breathing/breathing bar.gd" id="1_yelyv"]
 
-[node name="Control" type="Control" unique_id=1069136006]
+[node name="UI" type="Control" unique_id=1069136006]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

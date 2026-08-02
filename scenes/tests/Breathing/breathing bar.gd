@@ -3,27 +3,29 @@ extends Control
 @onready var breathingbar: ProgressBar = $breathingbar
 @onready var closed_eyes: ColorRect = $closed_eyes
 
-var breath: float = 100
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.Breath_count = 100
 	breathingbar.max_value = 100
-	breathingbar.value = breath # Replace with function body.
+	breathingbar.value = GameManager.Breath_count # Replace with function body.
 	closed_eyes.color.a = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	breathingbar.value = breath
-	if Input.is_action_pressed("ui_accept") and breath > 0:
-		breath -= 30 * delta	
-			
-	elif breath < 100:
-		breath += 1 * delta
+	breathingbar.value = GameManager.Breath_count
+	if Input.is_action_pressed("Breathe") and GameManager.Breath_count > 0:
+		GameManager.Is_Breathing = true
+		GameManager.Breath_count -= 30 * delta	
+	else:
+		GameManager.Is_Breathing = false
+		
+	if GameManager.Breath_count < 100:
+		GameManager.Breath_count += 15 * delta
 		
 	if Input.is_action_pressed("close_eyes"):
 		closed_eyes.color.a = 100.0
 	else:
 		closed_eyes.color.a = 0.0
 		
-	if breath <= 0:
+	if GameManager.Breath_count <= 0:
 		dead_label.text = "u dead :sob:"
