@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dkg8uak5tt5vc"]
 
-[ext_resource type="Script" uid="uid://c1eo53j8bfisx" path="res://scenes/View/view.gd" id="1_ojhqs"]
+[ext_resource type="Script" uid="uid://c1eo53j8bfisx" path="res://scenes/View/view.gd" id="9_ojhqs"]
+
+[ext_resource type="PackedScene" uid="uid://c3yytjkuy2qvp" path="res://scenes/tests/Breathing/breathing and eyes closed .tscn" id="1_ojhqs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6gegx"]
 size = Vector3(11, 1, 1)
@@ -38,3 +40,5 @@ size = Vector3(3.9311218, 0.520874, 3.979004)
 [node name="View" type="Camera3D" parent="." unique_id=2081182020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71958566, 0, 1.1155399)
 script = ExtResource("1_ojhqs")
+
+[node name="UI" parent="." unique_id=1069136006 instance=ExtResource("1_ojhqs")]
