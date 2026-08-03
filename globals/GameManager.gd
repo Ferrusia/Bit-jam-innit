@@ -9,7 +9,7 @@ var Is_Playing : bool = true
 
 var Heart_Rate : int = 84 #in BPM btw, 220 kills u
 
-var Is_Sleeping : bool = true
+var Is_Sleeping : bool = false
 
 func PSFX(stream: AudioStream):
 	var asp = AudioStreamPlayer.new()
@@ -19,4 +19,5 @@ func PSFX(stream: AudioStream):
 	asp.play()
 
 func Attack_Player(Name : String, BPM : int) -> void:
+	print("Heart Rate : " + str(Heart_Rate))
 	Heart_Rate += BPM

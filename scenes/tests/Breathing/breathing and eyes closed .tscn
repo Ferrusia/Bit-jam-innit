@@ -32,8 +32,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="closed_eyes" type="ColorRect" parent="." unique_id=1262779340]
-visible = false
 layout_mode = 0
 offset_right = 1982.0
 offset_bottom = 1130.0
 color = Color(0, 0, 0, 1)
+
+[node name="Heart_Rate" type="Label" parent="." unique_id=231878683]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1713.0
+offset_top = 915.0
+offset_right = 1833.0
+offset_bottom = 1003.0
+theme_override_font_sizes/font_size = 64
+text = "Boo"

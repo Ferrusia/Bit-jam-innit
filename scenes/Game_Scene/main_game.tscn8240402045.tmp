@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://dkg8uak5tt5vc"]
+
+[ext_resource type="PackedScene" uid="uid://c3yytjkuy2qvp" path="res://scenes/tests/Breathing/breathing and eyes closed .tscn" id="1_ojhqs"]
+[ext_resource type="Script" uid="uid://d0u63f84wmjpx" path="res://characters/Door_Enemy/door_enemy.gd" id="3_4lnj8"]
+[ext_resource type="Texture2D" uid="uid://6c55ewfoajbr" path="res://icon.svg" id="3_hh7rt"]
+[ext_resource type="Script" uid="uid://c1eo53j8bfisx" path="res://scenes/View/view.gd" id="9_ojhqs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ojhqs"]
+size = Vector3(3.2399902, 0.49816513, 1)
+
+[sub_resource type="Animation" id="Animation_1qvcq"]
+resource_name = "Left_Face"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("View:rotation:x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666666, 0.16666669),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.21, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("View:rotation:y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.195]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("View:rotation:z")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.505]
+}
+
+[sub_resource type="Animation" id="Animation_hh7rt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("View:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("View:rotation:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("View:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4lnj8"]
+resource_name = "Right_Face"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("View:rotation:x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.13333334, 0.2, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.26, -0.26, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("View:rotation:y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.88]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("View:rotation:z")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.75]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hh7rt"]
+_data = {
+&"Left_Face": SubResource("Animation_1qvcq"),
+&"RESET": SubResource("Animation_hh7rt"),
+&"Right_Face": SubResource("Animation_4lnj8")
+}
+
+[node name="Main_Game" type="Node3D" unique_id=235772255]
+
+[node name="World" type="Node3D" parent="." unique_id=2145034331]
+
+[node name="MeshInstance3D" type="CSGBox3D" parent="World" unique_id=1294238406]
+transform = Transform3D(1, 0, 0, 0, 4.788, 0, 0, 0, 0.35627115, 0.40249634, 0, -6.8827524)
+size = Vector3(9.335388, 1, 1)
+
+[node name="MeshInstance3D2" type="CSGBox3D" parent="World" unique_id=1859387800]
+transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, -1.8303702, 0, -1.7791147)
+size = Vector3(10.996826, 1, 1)
+
+[node name="MeshInstance3D3" type="CSGBox3D" parent="World/MeshInstance3D2" unique_id=690204607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3724048, -0.11431884, -0.010009289)
+operation = 2
+size = Vector3(2.6802673, 0.7713623, 3.4125977)
+
+[node name="MeshInstance3D3" type="CSGBox3D" parent="World" unique_id=849329006]
+transform = Transform3D(-1, 0, -3.1146214e-08, 0, 4.788, 0, 8.742278e-08, 0, -0.35627115, -7.3896923, 0, -1.7791147)
+size = Vector3(10.996826, 1, 1)
+
+[node name="MeshInstance3D3" type="CSGBox3D" parent="World/MeshInstance3D3" unique_id=476591102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0577917, -0.11431884, -0.010007858)
+operation = 2
+size = Vector3(2.6802673, 0.7713623, 3.4125977)
+
+[node name="MeshInstance3D4" type="CSGBox3D" parent="World" unique_id=625176978]
+transform = Transform3D(-1, 0, -3.1146214e-08, 0, 4.788, 0, 8.742278e-08, 0, -0.35627115, -7.3896923, 0, 2.5308113)
+size = Vector3(10.996826, 1, 1)
+
+[node name="MeshInstance3D3" type="CSGBox3D" parent="World/MeshInstance3D4" unique_id=156488524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0577917, -0.11431884, -0.010007858)
+operation = 2
+size = Vector3(2.6802673, 0.7713623, 3.4125977)
+
+[node name="MeshInstance3D5" type="CSGBox3D" parent="World" unique_id=644206559]
+transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, -12.441453, 0, -4.3661604)
+size = Vector3(14.006561, 1, 1)
+
+[node name="Window_Wall" type="CSGBox3D" parent="World" unique_id=152572568]
+transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, 4.895754, 0, -1.740571)
+size = Vector3(12.233337, 1, 1)
+
+[node name="MeshInstance3D4" type="CSGBox3D" parent="World/Window_Wall" unique_id=1040086561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4465804, -0.0061645494, -0.23608398)
+operation = 2
+size = Vector3(3.9311218, 0.520874, 3.979004)
+
+[node name="Bed" type="MeshInstance3D" parent="World" unique_id=254058556]
+transform = Transform3D(1.9106855e-15, -4.788, -1.5573107e-08, -4.371139e-08, -2.0929014e-07, 0.35627115, -1, 0, -1.5573107e-08, 0.60914975, -1.0115529, -0.044601917)
+mesh = SubResource("BoxMesh_ojhqs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1235092824]
+transform = Transform3D(-0.55580425, -0.71993834, 0.4156565, 0.38027754, 0.22443435, 0.8972281, -0.7392365, 0.65674806, 0.14903474, 0, 7.7453923, 0)
+shadow_enabled = true
+
+[node name="View" type="Camera3D" parent="." unique_id=2081182020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71958566, -0.47664356, 1.1155399)
+script = ExtResource("9_ojhqs")
+
+[node name="UI" parent="." unique_id=1069136006 instance=ExtResource("1_ojhqs")]
+
+[node name="View_Anim" type="AnimationPlayer" parent="." unique_id=1447095762]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_hh7rt")
+
+[node name="Door_Enemy" type="Node3D" parent="." unique_id=1373069173]
+script = ExtResource("3_4lnj8")
+
+[node name="Pos_1" type="Sprite3D" parent="Door_Enemy" unique_id=1285506893]
+unique_name_in_owner = true
+transform = Transform3D(1.024927, 0, 1.717418, 0, 2, 0, -1.717418, 0, 1.024927, -9.505014, -0.8385669, -2.2095227)
+texture = ExtResource("3_hh7rt")
+
+[node name="Pos_2" type="Sprite3D" parent="Door_Enemy" unique_id=1225739946]
+unique_name_in_owner = true
+transform = Transform3D(-0.8737143, 0, 1.2192718, 0, 1.5, 0, -1.2192718, 0, -0.8737143, -2.493997, 0.18619311, 2.404659)
+texture = ExtResource("3_hh7rt")
+
+[node name="Pos_3" type="Sprite3D" parent="Door_Enemy" unique_id=293195996]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6685178, -1.4002426, 0.8366108)
+texture = ExtResource("3_hh7rt")

@@ -13,8 +13,8 @@ func _ready() -> void:
 	NightData._Update_AI()
 		
 var Current_Position : int = Location.Not_Yet
-var CoolDown_Count : float = 3.35
-var CoolDown_Timer : float = 3.35
+var CoolDown_Count : float = 1
+var CoolDown_Timer : float = CoolDown_Count
 
 @onready var Preset_Loation : = [
 	null,
@@ -47,16 +47,17 @@ var Evade_Count : float = 2
 var Evade_Timer : float = Evade_Count
 var Sleep_Count : float = 1
 var Sleep_Timer : float = Sleep_Count
+
 func _ATTACK(delta) -> void:
-	
 	if not GameManager.Is_Sleeping:
 		Evade_Timer -= delta
 		if Evade_Timer < 0:
 			Evade_Timer = Evade_Count
+			print("boo")
 			GameManager.Attack_Player("DoorMan", 25)
 			RESET()
+	
 	else:
-		
 		Sleep_Timer -= delta
 		if Sleep_Timer < 0:
 			Sleep_Timer = Sleep_Count
@@ -67,11 +68,11 @@ func _process(delta: float) -> void:
 	if Current_Position < Location.Bed_Side:
 		_Movement(delta)
 	else:
+		print("p")
 		_ATTACK(delta)
-	
 				
 func RESET() -> void:
 	Current_Position = Location.Not_Yet
-	
-			
+	Evade_Timer = Evade_Count
+	Sleep_Timer = Sleep_Count
 		

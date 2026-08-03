@@ -2,6 +2,7 @@ extends Control
 @onready var dead_label: Label = $dead_label
 @onready var breathingbar: ProgressBar = $breathingbar
 @onready var closed_eyes: ColorRect = $closed_eyes
+@onready var BPM_Label : Label = %Heart_Rate
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	BPM_Label.text = str(GameManager.Heart_Rate)
 	breathingbar.value = GameManager.Breath_count
 	if Input.is_action_pressed("Breathe") and GameManager.Breath_count > 0:
 		GameManager.Is_Breathing = true
@@ -23,8 +25,10 @@ func _process(delta: float) -> void:
 		GameManager.Breath_count += 15 * delta
 		
 	if Input.is_action_pressed("close_eyes"):
+		GameManager.Is_Sleeping = true
 		closed_eyes.color.a = 100.0
 	else:
+		GameManager.Is_Sleeping = false
 		closed_eyes.color.a = 0.0
 		
 	if GameManager.Breath_count <= 0:
