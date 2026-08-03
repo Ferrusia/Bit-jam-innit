@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://c7g4nxhk34v1s"
+NightData="*uid://xykovcgf2pnj"
 
 [display]
 

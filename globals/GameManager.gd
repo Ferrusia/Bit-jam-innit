@@ -5,6 +5,11 @@ var Is_Breathing : bool = false
 
 var Night : int = 1
 var SleepyCount : int = 0
+var Is_Playing : bool = true
+
+var Heart_Rate : int = 84 #in BPM btw, 220 kills u
+
+var Is_Sleeping : bool = true
 
 func PSFX(stream: AudioStream):
 	var asp = AudioStreamPlayer.new()
@@ -12,3 +17,6 @@ func PSFX(stream: AudioStream):
 	asp.stream = stream
 	asp.finished.connect(asp.queue_free) # Delete the node when done
 	asp.play()
+
+func Attack_Player(Name : String, BPM : int) -> void:
+	Heart_Rate += BPM
