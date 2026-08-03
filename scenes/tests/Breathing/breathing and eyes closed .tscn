@@ -14,9 +14,9 @@ script = ExtResource("1_yelyv")
 [node name="breathingbar" type="ProgressBar" parent="." unique_id=1340887953]
 layout_mode = 0
 offset_left = 493.0
-offset_top = 282.0
+offset_top = 59.0
 offset_right = 1398.0
-offset_bottom = 814.0
+offset_bottom = 154.0
 value = 100.0
 
 [node name="dead_label" type="Label" parent="." unique_id=1052717381]
