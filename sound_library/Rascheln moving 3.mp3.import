@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bf1regx2n0lkh"
+path="res://.godot/imported/Rascheln moving 3.mp3-2d491040c62ccfbf315d927cb421c35f.mp3str"
+
+[deps]
+
+source_file="res://sound_library/Rascheln moving 3.mp3"
+dest_files=["res://.godot/imported/Rascheln moving 3.mp3-2d491040c62ccfbf315d927cb421c35f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cavc1a5uw8har"
+path="res://.godot/imported/Minecraft cave noises 1.mp3-22402ea40bfd7ed9ae4b8e8eef115ea6.mp3str"
+
+[deps]
+
+source_file="res://sound_library/Minecraft cave noises 1.mp3"
+dest_files=["res://.godot/imported/Minecraft cave noises 1.mp3-22402ea40bfd7ed9ae4b8e8eef115ea6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

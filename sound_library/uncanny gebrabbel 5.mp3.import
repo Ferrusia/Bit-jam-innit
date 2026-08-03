@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8iqrue7jqedp"
+path="res://.godot/imported/uncanny gebrabbel 5.mp3-99f3abf57887f99ff9dc46691f7d225a.mp3str"
+
+[deps]
+
+source_file="res://sound_library/uncanny gebrabbel 5.mp3"
+dest_files=["res://.godot/imported/uncanny gebrabbel 5.mp3-99f3abf57887f99ff9dc46691f7d225a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

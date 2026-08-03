@@ -142,6 +142,11 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 4.788, 0, 0, 0, 0.35627115, 0.40249634, 0, -6.8827524)
 size = Vector3(9.335388, 1, 1)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="World/MeshInstance3D" unique_id=832038088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0787396, 0.15347289, 0.9494209)
+operation = 2
+size = Vector3(1, 0.17718506, 7.9559326)
+
 [node name="MeshInstance3D2" type="CSGBox3D" parent="World" unique_id=1859387800]
 transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, -1.8303702, 0, -1.7791147)
 size = Vector3(10.996826, 1, 1)
@@ -217,3 +222,21 @@ texture = ExtResource("3_hh7rt")
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6685178, -1.4002426, 0.8366108)
 texture = ExtResource("3_hh7rt")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=556147104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41610107, 0, -1.3929226)
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1573336442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.820215, -3.9138968, -10.589713)
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1402302967]
+transform = Transform3D(1, -2.2933014e-08, 6.49899e-09, 2.2933012e-08, 0.8513204, -0.52464616, 6.4989933e-09, 0.52464616, 0.8513204, 8.820215, -3.9138968, -10.589713)
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1936829697]
+transform = Transform3D(1, -2.2933014e-08, 6.49899e-09, 2.2933012e-08, 0.8513204, -0.52464616, 6.4989933e-09, 0.52464616, 0.8513204, 7.385784, 2.6906545, 3.1722202)
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1599679758]
+transform = Transform3D(1, -2.2933014e-08, 6.49899e-09, 2.2933012e-08, 0.8513204, -0.52464616, 6.4989933e-09, 0.52464616, 0.8513204, -0.006409824, 2.6906545, 4.894867)
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1678811429]
+transform = Transform3D(1, -2.2933014e-08, 6.49899e-09, 2.2933012e-08, 0.8513204, -0.52464616, 6.4989933e-09, 0.52464616, 0.8513204, -1.3580225, 2.6906545, 5.92223)

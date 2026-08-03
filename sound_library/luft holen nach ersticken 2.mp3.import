@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwlpxm5j658te"
+path="res://.godot/imported/luft holen nach ersticken 2.mp3-0b6bc5fbfeb63683301de74706d44d36.mp3str"
+
+[deps]
+
+source_file="res://sound_library/luft holen nach ersticken 2.mp3"
+dest_files=["res://.godot/imported/luft holen nach ersticken 2.mp3-0b6bc5fbfeb63683301de74706d44d36.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

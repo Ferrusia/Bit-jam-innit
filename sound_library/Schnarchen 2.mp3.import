@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://csetowjakgswk"
+path="res://.godot/imported/Schnarchen 2.mp3-e51edb961ec1e5e9097082f1b00f88a5.mp3str"
+
+[deps]
+
+source_file="res://sound_library/Schnarchen 2.mp3"
+dest_files=["res://.godot/imported/Schnarchen 2.mp3-e51edb961ec1e5e9097082f1b00f88a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

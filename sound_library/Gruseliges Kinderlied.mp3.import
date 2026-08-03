@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cl752tfr0rdc4"
+path="res://.godot/imported/Gruseliges Kinderlied.mp3-001762895553a6d685ef5ef8116fb748.mp3str"
+
+[deps]
+
+source_file="res://sound_library/Gruseliges Kinderlied.mp3"
+dest_files=["res://.godot/imported/Gruseliges Kinderlied.mp3-001762895553a6d685ef5ef8116fb748.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
