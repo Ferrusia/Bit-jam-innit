@@ -29,7 +29,7 @@ func Transition() -> void:
 	else:
 		pass
 	
-var CoolDown_Bound : float = 0.25
+var CoolDown_Bound : float = 0.2
 var CoolDown_Timer : float = CoolDown_Bound
 
 func View_Logic(delta) -> void:

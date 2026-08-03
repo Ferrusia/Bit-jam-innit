@@ -134,35 +134,59 @@ _data = {
 
 [node name="Main_Game" type="Node3D" unique_id=235772255]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1235092824]
-transform = Transform3D(-0.55580425, -0.71993834, 0.4156565, 0.38027754, 0.22443435, 0.8972281, -0.7392365, 0.65674806, 0.14903474, 0, 7.7453923, 0)
-shadow_enabled = true
+[node name="World" type="Node3D" parent="." unique_id=2145034331]
 
-[node name="MeshInstance3D" type="CSGBox3D" parent="." unique_id=1294238406]
+[node name="MeshInstance3D" type="CSGBox3D" parent="World" unique_id=1294238406]
 transform = Transform3D(1, 0, 0, 0, 4.788, 0, 0, 0, 0.35627115, 0.40249634, 0, -6.8827524)
 size = Vector3(9.335388, 1, 1)
 
-[node name="MeshInstance3D2" type="CSGBox3D" parent="." unique_id=1859387800]
+[node name="MeshInstance3D2" type="CSGBox3D" parent="World" unique_id=1859387800]
 transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, -1.8303702, 0, -1.7791147)
 size = Vector3(10.996826, 1, 1)
 
-[node name="MeshInstance3D3" type="CSGBox3D" parent="MeshInstance3D2" unique_id=690204607]
+[node name="MeshInstance3D3" type="CSGBox3D" parent="World/MeshInstance3D2" unique_id=690204607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3724048, -0.11431884, -0.010009289)
 operation = 2
 size = Vector3(2.6802673, 0.7713623, 3.4125977)
 
-[node name="Bed" type="MeshInstance3D" parent="." unique_id=254058556]
-transform = Transform3D(1.9106855e-15, -4.788, -1.5573107e-08, -4.371139e-08, -2.0929014e-07, 0.35627115, -1, 0, -1.5573107e-08, 0.60914975, -1.0115529, -0.044601917)
-mesh = SubResource("BoxMesh_ojhqs")
+[node name="MeshInstance3D3" type="CSGBox3D" parent="World" unique_id=849329006]
+transform = Transform3D(-1, 0, -3.1146214e-08, 0, 4.788, 0, 8.742278e-08, 0, -0.35627115, -7.3896923, 0, -1.7791147)
+size = Vector3(10.996826, 1, 1)
 
-[node name="Window_Wall" type="CSGBox3D" parent="." unique_id=152572568]
+[node name="MeshInstance3D3" type="CSGBox3D" parent="World/MeshInstance3D3" unique_id=476591102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0577917, -0.11431884, -0.010007858)
+operation = 2
+size = Vector3(2.6802673, 0.7713623, 3.4125977)
+
+[node name="MeshInstance3D4" type="CSGBox3D" parent="World" unique_id=625176978]
+transform = Transform3D(-1, 0, -3.1146214e-08, 0, 4.788, 0, 8.742278e-08, 0, -0.35627115, -7.3896923, 0, 2.5308113)
+size = Vector3(10.996826, 1, 1)
+
+[node name="MeshInstance3D3" type="CSGBox3D" parent="World/MeshInstance3D4" unique_id=156488524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0577917, -0.11431884, -0.010007858)
+operation = 2
+size = Vector3(2.6802673, 0.7713623, 3.4125977)
+
+[node name="MeshInstance3D5" type="CSGBox3D" parent="World" unique_id=644206559]
+transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, -12.441453, 0, -4.3661604)
+size = Vector3(14.006561, 1, 1)
+
+[node name="Window_Wall" type="CSGBox3D" parent="World" unique_id=152572568]
 transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, 4.895754, 0, -1.740571)
 size = Vector3(12.233337, 1, 1)
 
-[node name="MeshInstance3D4" type="CSGBox3D" parent="Window_Wall" unique_id=1040086561]
+[node name="MeshInstance3D4" type="CSGBox3D" parent="World/Window_Wall" unique_id=1040086561]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4465804, -0.0061645494, -0.23608398)
 operation = 2
 size = Vector3(3.9311218, 0.520874, 3.979004)
+
+[node name="Bed" type="MeshInstance3D" parent="World" unique_id=254058556]
+transform = Transform3D(1.9106855e-15, -4.788, -1.5573107e-08, -4.371139e-08, -2.0929014e-07, 0.35627115, -1, 0, -1.5573107e-08, 0.60914975, -1.0115529, -0.044601917)
+mesh = SubResource("BoxMesh_ojhqs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1235092824]
+transform = Transform3D(-0.55580425, -0.71993834, 0.4156565, 0.38027754, 0.22443435, 0.8972281, -0.7392365, 0.65674806, 0.14903474, 0, 7.7453923, 0)
+shadow_enabled = true
 
 [node name="View" type="Camera3D" parent="." unique_id=2081182020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71958566, -0.47664356, 1.1155399)
