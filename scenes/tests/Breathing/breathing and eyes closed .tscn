@@ -20,6 +20,7 @@ offset_bottom = 154.0
 value = 100.0
 
 [node name="dead_label" type="Label" parent="." unique_id=1052717381]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.99200004

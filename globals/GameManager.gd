@@ -1,5 +1,7 @@
 extends Node
 
+var ui: Node = null
+
 var Breath_count : float = 100
 var Is_Breathing : bool = false
 
@@ -21,3 +23,9 @@ func PSFX(stream: AudioStream):
 func Attack_Player(Name : String, BPM : int) -> void:
 	print("Heart Rate : " + str(Heart_Rate))
 	Heart_Rate += BPM
+	
+	
+	
+func death():
+	ui.dead_label.text = "u dead :sob:"
+	

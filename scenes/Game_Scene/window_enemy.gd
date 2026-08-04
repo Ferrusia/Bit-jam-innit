@@ -2,12 +2,13 @@ extends Node3D
 
 @onready var Audio : Variant
 
-var AI : int = NightData.DoorMan_AI
+
+var AI : int = NightData.WindowWoman_AI
 enum Location {
 	Not_Yet,
-	Hall_End,
-	Door_Way,
-	Bed_Side,
+	small_peek,
+	big_peek,
+	wholeway,
 	Attack
 }
 
@@ -20,10 +21,10 @@ var CoolDown_Timer : float = CoolDown_Count
 
 @onready var Preset_Loation : = [
 	null,
-	%Pos_1,
-	%Pos_2,
-	%Pos_3
-]
+	%wwPos_1,
+	%wwPos_2,
+	%wwPos_3,
+	null]
 
 func _Movement(delta) -> void:
 	CoolDown_Timer -= delta
@@ -31,7 +32,7 @@ func _Movement(delta) -> void:
 		CoolDown_Timer = CoolDown_Count
 		var SemiHemiFifth_Chance = randi_range(1, 20) 
 		
-		if SemiHemiFifth_Chance <= NightData.DoorMan_AI:
+		if SemiHemiFifth_Chance <= NightData.WindowWoman_AI:
 			Current_Position += 1
 
 func _Displayer() -> void:
@@ -58,8 +59,8 @@ func _ATTACK(delta) -> void:
 			print("boo")
 			Audio = preload("res://sound_library/jumpscare sound.mp3")
 			GameManager.PSFX(Audio)
-			
-			GameManager.Attack_Player("DoorMan", 25)
+			GameManager.death()
+			GameManager.Attack_Player("WindowWoman", 25)
 			RESET()
 	
 	else:
@@ -70,7 +71,7 @@ func _ATTACK(delta) -> void:
 			
 func _process(delta: float) -> void:
 	_Displayer()
-	if Current_Position < Location.Bed_Side:
+	if Current_Position < Location.wholeway:
 		_Movement(delta)
 	else:
 		print("p")
