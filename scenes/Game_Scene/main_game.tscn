@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dkg8uak5tt5vc"]
 
 [ext_resource type="PackedScene" uid="uid://c3yytjkuy2qvp" path="res://scenes/tests/Breathing/breathing and eyes closed .tscn" id="1_ojhqs"]
+[ext_resource type="Script" uid="uid://uryc5l8toamw" path="res://sound_manager/environment_sfx.gd" id="1_qd4n2"]
 [ext_resource type="Script" uid="uid://d0u63f84wmjpx" path="res://characters/Door_Enemy/door_enemy.gd" id="3_4lnj8"]
 [ext_resource type="Texture2D" uid="uid://6c55ewfoajbr" path="res://icon.svg" id="3_hh7rt"]
+[ext_resource type="Script" uid="uid://dhs3oouamnuox" path="res://sound_manager/door_enemy_sfx.gd" id="4_oly57"]
 [ext_resource type="Script" uid="uid://c1eo53j8bfisx" path="res://scenes/View/view.gd" id="9_ojhqs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ojhqs"]
@@ -136,6 +138,9 @@ _data = {
 
 [node name="Main_Game" type="Node3D" unique_id=235772255]
 
+[node name="Environment_SFX" type="Node3D" parent="." unique_id=700970850]
+script = ExtResource("1_qd4n2")
+
 [node name="World" type="Node3D" parent="." unique_id=2145034331]
 
 [node name="MeshInstance3D" type="CSGBox3D" parent="World" unique_id=1294238406]
@@ -208,6 +213,9 @@ libraries/ = SubResource("AnimationLibrary_hh7rt")
 [node name="Door_Enemy" type="Node3D" parent="." unique_id=1373069173]
 script = ExtResource("3_4lnj8")
 
+[node name="Door_Enemy_SFX" type="Node3D" parent="Door_Enemy" unique_id=1681050700]
+script = ExtResource("4_oly57")
+
 [node name="Pos_1" type="Sprite3D" parent="Door_Enemy" unique_id=1285506893]
 unique_name_in_owner = true
 transform = Transform3D(1.024927, 0, 1.717418, 0, 2, 0, -1.717418, 0, 1.024927, -9.505014, -0.8385669, -2.2095227)
@@ -222,21 +230,3 @@ texture = ExtResource("3_hh7rt")
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6685178, -1.4002426, 0.8366108)
 texture = ExtResource("3_hh7rt")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=556147104]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41610107, 0, -1.3929226)
-
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1573336442]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.820215, -3.9138968, -10.589713)
-
-[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1402302967]
-transform = Transform3D(1, -2.2933014e-08, 6.49899e-09, 2.2933012e-08, 0.8513204, -0.52464616, 6.4989933e-09, 0.52464616, 0.8513204, 8.820215, -3.9138968, -10.589713)
-
-[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1936829697]
-transform = Transform3D(1, -2.2933014e-08, 6.49899e-09, 2.2933012e-08, 0.8513204, -0.52464616, 6.4989933e-09, 0.52464616, 0.8513204, 7.385784, 2.6906545, 3.1722202)
-
-[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1599679758]
-transform = Transform3D(1, -2.2933014e-08, 6.49899e-09, 2.2933012e-08, 0.8513204, -0.52464616, 6.4989933e-09, 0.52464616, 0.8513204, -0.006409824, 2.6906545, 4.894867)
-
-[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="Door_Enemy/Pos_3" unique_id=1678811429]
-transform = Transform3D(1, -2.2933014e-08, 6.49899e-09, 2.2933012e-08, 0.8513204, -0.52464616, 6.4989933e-09, 0.52464616, 0.8513204, -1.3580225, 2.6906545, 5.92223)
