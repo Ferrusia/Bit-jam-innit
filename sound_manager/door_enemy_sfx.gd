@@ -8,7 +8,9 @@ preload("res://sound_library/Footsteps 4.mp3"),
 preload("res://sound_library/Footsteps 5 mit speed up.mp3")
 ]
 
-func _PlaySFX() -> void:
+func _PlayFootstepSFX() -> void:
 	var Fifth_Chance : int = randi_range(0, 4) 
 	GameManager.PSFX(Footsteps[Fifth_Chance])
 	
+func _ready() -> void:
+	GameManager.door_enemy_sfx = self

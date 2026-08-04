@@ -47,3 +47,14 @@ offset_right = 1833.0
 offset_bottom = 1003.0
 theme_override_font_sizes/font_size = 64
 text = "Boo"
+
+[node name="returnmainmenu" type="Button" parent="." unique_id=235582622]
+visible = false
+layout_mode = 0
+offset_left = 596.0
+offset_top = 505.0
+offset_right = 856.0
+offset_bottom = 583.0
+text = "Go back to main menu"
+
+[connection signal="pressed" from="returnmainmenu" to="." method="_on_returnmainmenu_pressed"]
