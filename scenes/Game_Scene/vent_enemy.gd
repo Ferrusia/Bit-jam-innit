@@ -76,6 +76,8 @@ func _ATTACK(delta) -> void:
 			RESET()
 			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
 			GameManager.PSFX(Audio)
+			GameManager.AttackCount += 1
+			GameManager.UI.UI_update()
 			
 func _process(delta: float) -> void:
 	_Displayer()

@@ -57,4 +57,24 @@ offset_right = 856.0
 offset_bottom = 583.0
 text = "Go back to main menu"
 
+[node name="NightNumber" type="Label" parent="." unique_id=262065456]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1623.0
+offset_top = 22.0
+offset_right = 1960.0
+offset_bottom = 141.0
+theme_type_variation = &"HeaderLarge"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DebugLabel" type="Label" parent="." unique_id=1620185286]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1631.0
+offset_top = 131.0
+offset_right = 1934.0
+offset_bottom = 325.0
+horizontal_alignment = 1
+
 [connection signal="pressed" from="returnmainmenu" to="." method="_on_returnmainmenu_pressed"]

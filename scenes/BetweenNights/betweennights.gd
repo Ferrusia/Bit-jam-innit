@@ -1,11 +1,8 @@
-extends Control
+extends Node
 
 func _ready() -> void:
 	GameManager.Heart_Rate = 84
-
-func _on_play_pressed() -> void:
+	print("u here?")
+	await get_tree().create_timer(10.0).timeout
 	get_tree().change_scene_to_file("res://scenes/Game_Scene/main_game.tscn")
-
-
-func _on_quit_pressed() -> void:
-	get_tree().quit()
+	print("did ya get ported?")

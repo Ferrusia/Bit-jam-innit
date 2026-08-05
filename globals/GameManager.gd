@@ -3,6 +3,7 @@ extends Node
 var UI: Node = null
 var door_enemy_sfx = null
 
+var AttackCount: int = 0
 
 var Breath_count : float = 100
 var Is_Breathing : bool = false

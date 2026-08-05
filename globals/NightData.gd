@@ -2,10 +2,10 @@ extends Node
 
 var AI: Dictionary = {
 	"Night_1": {
-		"DoorMan": 5,
-		"WindowWoman": 5,
-		"Vent_Enemy": 5,
-		"FeetLover": 5,
+		"DoorMan": 20,
+		"WindowWoman": 20,
+		"Vent_Enemy": 20,
+		"FeetLover": 20,
 	}
 }
 
@@ -14,6 +14,7 @@ var WindowWoman_AI: int = 0
 var FeetLover_AI: int = 0
 var Vent_Enemy_AI: int = 0
 
+var AttacksPerNight: Array = [5, 10, 15, 20, 25]
 
 func _Update_AI() -> void:
 	var current_night_key: String = "Night_" + str(GameManager.Night)
@@ -26,3 +27,8 @@ func _Update_AI() -> void:
 		Vent_Enemy_AI = night_data.get("Vent_Enemy", 0)
 	else:
 		push_warning("No AI configuration found for: " + current_night_key)
+		
+		
+func	_win():
+	GameManager.Night += 1
+	
