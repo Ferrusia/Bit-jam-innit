@@ -53,20 +53,7 @@ var Sleep_Count : float = 1
 var Sleep_Timer : float = Sleep_Count
 
 func _ATTACK(delta) -> void:
-	if not GameManager.Is_Sleeping:
-		Evade_Timer -= delta
-		if Evade_Timer < 0 and GameManager.Is_Breathing == true:
-			Evade_Timer = Evade_Count
-			Audio = preload("res://sound_library/jumpscare sound.mp3")
-			GameManager.PSFX(Audio)
-			GameManager.Attack_Player("WindowWoman", 25)
-			RESET()
-		elif Evade_Timer < 0  and GameManager.Is_Breathing == false:
-			RESET()
-			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
-			GameManager.PSFX(Audio)
-	
-	else:
+	if not GameManager.Is_Breathing and %View.Current_View == %View.View_Points.Left:
 		Sleep_Timer -= delta
 		if Sleep_Timer < 0:
 			Sleep_Timer = Sleep_Count
@@ -74,7 +61,14 @@ func _ATTACK(delta) -> void:
 			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
 			GameManager.PSFX(Audio)
 			GameManager.AttackCount += 1
-			
+	else:
+		Evade_Timer -= delta
+		if Evade_Timer < 0:
+			Evade_Timer = Evade_Count
+			Audio = preload("res://sound_library/jumpscare sound.mp3")
+			GameManager.PSFX(Audio)
+			GameManager.Attack_Player("WindowWoman", 15)
+			RESET()
 			
 func _process(delta: float) -> void:
 	_Displayer()
