@@ -58,8 +58,6 @@ func _ATTACK(delta) -> void:
 			Evade_Timer = Evade_Count
 			Audio = preload("res://sound_library/jumpscare sound.mp3")
 			GameManager.PSFX(Audio)
-			GameManager.death()
-			print("boo")
 			GameManager.Attack_Player("Vent_Enemy", 25)
 			RESET()
 		elif Evade_Timer < 0  and GameManager.Is_Breathing == false:
@@ -77,14 +75,13 @@ func _ATTACK(delta) -> void:
 			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
 			GameManager.PSFX(Audio)
 			GameManager.AttackCount += 1
-			GameManager.UI.UI_update()
+			
 			
 func _process(delta: float) -> void:
 	_Displayer()
 	if Current_Position < Location.peeking_out:
 		_Movement(delta)
 	else:
-		print("p")
 		_ATTACK(delta)
 				
 func RESET() -> void:

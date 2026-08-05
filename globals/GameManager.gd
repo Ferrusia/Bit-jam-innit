@@ -30,7 +30,6 @@ func Attack_Player(Name : String, BPM : int) -> void:
 		death()
 	
 	
-	
 func death():
 	UI.dead_label.text = "u dead :sob:"
 	UI.get_node("returnmainmenu").visible = true

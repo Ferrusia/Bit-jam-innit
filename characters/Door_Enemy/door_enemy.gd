@@ -15,7 +15,7 @@ func _ready() -> void:
 	NightData._Update_AI()
 		
 var Current_Position : int = Location.Not_Yet
-var CoolDown_Count : float = 1
+var CoolDown_Count : float = 2.5
 var CoolDown_Timer : float = CoolDown_Count
 
 @onready var Preset_Loation : = [
@@ -53,25 +53,7 @@ var Sleep_Count : float = 1
 var Sleep_Timer : float = Sleep_Count
 
 func _ATTACK(delta) -> void:
-	if not GameManager.Is_Sleeping:
-		Evade_Timer -= delta
-		if Evade_Timer < 0  and not Input.is_action_pressed("close_eyes"):
-			Evade_Timer = Evade_Count
-			print("boo")
-			Audio = preload("res://sound_library/jumpscare sound.mp3")
-			GameManager.PSFX(Audio)
-			GameManager.death()
-			GameManager.Attack_Player("DoorMan", 25)
-			RESET()
-		elif Evade_Timer < 0  and Input.is_action_pressed("close_eyes"):
-			print("Test")
-			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
-			GameManager.PSFX(Audio)
-			GameManager.AttackCount += 1
-			GameManager.UI.UI_update()
-			RESET()
-	
-	else:
+	if GameManager.Is_Sleeping and %View.Current_View == %View.View_Points.Right:
 		Sleep_Timer -= delta
 		if Sleep_Timer < 0:
 			Sleep_Timer = Sleep_Count
@@ -79,14 +61,21 @@ func _ATTACK(delta) -> void:
 			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
 			GameManager.PSFX(Audio)
 			GameManager.AttackCount += 1
-			GameManager.UI.UI_update()
+	else:
+		Evade_Timer -= delta
+		if Evade_Timer < 0:
+			Evade_Timer = Evade_Count
+			Audio = preload("res://sound_library/jumpscare sound.mp3")
+			GameManager.PSFX(Audio)
+			GameManager.Attack_Player("DoorMan", 25)
+			RESET()
+	
 			
 func _process(delta: float) -> void:
 	_Displayer()
 	if Current_Position < Location.Bed_Side:
 		_Movement(delta)
 	else:
-		print("p")
 		_ATTACK(delta)
 				
 func RESET() -> void:

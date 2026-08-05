@@ -16,10 +16,9 @@ func _ready() -> void:
 	$NightNumber.text = "Night " + str(GameManager.Night)
 	$DebugLabel.text = str(GameManager.AttackCount) + " times evaded death" 
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	UI_update()
 	BPM_Label.text = str(GameManager.Heart_Rate)
 	breathingbar.value = GameManager.Breath_count
 	if Input.is_action_pressed("hold_breath") and GameManager.Breath_count > 0:
@@ -68,13 +67,22 @@ func _process(delta: float) -> void:
 func _on_returnmainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
 	pass # Replace with function body.
-	
+
+var Sleeping : float = 0
 func UI_update():
 	$NightNumber.text = "Night " + str(GameManager.Night)
-	$DebugLabel.text = str(GameManager.AttackCount) + " times evaded death"
-	if GameManager.AttackCount >= NightData.AttacksPerNight[GameManager.Night-1]:
-		GameManager.Night += 1
-		GameManager.AttackCount = 0
-		get_tree().change_scene_to_file("res://scenes/BetweenNights/betweennights.tscn")
 	
+	if GameManager.AttackCount >= NightData.AttacksPerNight[GameManager.Night-1]:
+		%DebugLabel.text = "You can Sleep Now"
+		if Input.is_action_pressed("close_eyes"):
+			Sleeping += get_process_delta_time()
+			if Sleeping >= 2:
+				GameManager.Night += 1
+				GameManager.AttackCount = 0
+				get_tree().change_scene_to_file("res://scenes/BetweenNights/betweennights.tscn")
+		else:
+			Sleeping = 0
+		
+	else:
+		$DebugLabel.text = str(GameManager.AttackCount) + " times evaded death"
 	

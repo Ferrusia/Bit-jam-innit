@@ -36,5 +36,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Quit"
 
+[node name="Title" type="Label" parent="." unique_id=1571795718]
+custom_minimum_size = Vector2(1920, 120)
+layout_mode = 0
+offset_right = 1923.0
+offset_bottom = 353.0
+theme_override_font_sizes/font_size = 128
+text = "Five Nights But you are sleep deprived "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

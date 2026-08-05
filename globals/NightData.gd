@@ -2,10 +2,16 @@ extends Node
 
 var AI: Dictionary = {
 	"Night_1": {
-		"DoorMan": 20,
-		"WindowWoman": 20,
-		"Vent_Enemy": 20,
-		"FeetLover": 20,
+		"DoorMan": 5,
+		"WindowWoman": 6,
+		"Vent_Enemy": 0,
+		"FeetLover": 0,
+	},
+	"Night_2": {
+		"DoorMan": 7,
+		"WindowWoman": 5,
+		"Vent_Enemy": 0,
+		"FeetLover": 0,
 	}
 }
 

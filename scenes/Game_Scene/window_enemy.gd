@@ -16,7 +16,7 @@ func _ready() -> void:
 	NightData._Update_AI()
 		
 var Current_Position : int = Location.Not_Yet
-var CoolDown_Count : float = 1
+var CoolDown_Count : float = 3.14
 var CoolDown_Timer : float = CoolDown_Count
 
 @onready var Preset_Loation : = [
@@ -27,7 +27,7 @@ var CoolDown_Timer : float = CoolDown_Count
 	null]
 
 func _Movement(delta) -> void:
-	CoolDown_Timer -= delta/3
+	CoolDown_Timer -= delta
 	if CoolDown_Timer < 0:
 		CoolDown_Timer = CoolDown_Count
 		var SemiHemiFifth_Chance = randi_range(1, 20) 
@@ -57,10 +57,8 @@ func _ATTACK(delta) -> void:
 		Evade_Timer -= delta
 		if Evade_Timer < 0 and GameManager.Is_Breathing == true:
 			Evade_Timer = Evade_Count
-			print("boo")
 			Audio = preload("res://sound_library/jumpscare sound.mp3")
 			GameManager.PSFX(Audio)
-			GameManager.death()
 			GameManager.Attack_Player("WindowWoman", 25)
 			RESET()
 		elif Evade_Timer < 0  and GameManager.Is_Breathing == false:
@@ -76,7 +74,7 @@ func _ATTACK(delta) -> void:
 			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
 			GameManager.PSFX(Audio)
 			GameManager.AttackCount += 1
-			GameManager.UI.UI_update()
+			
 			
 func _process(delta: float) -> void:
 	_Displayer()
