@@ -21,8 +21,11 @@ func Transition() -> void:
 				match Prev_View:
 					0:
 						%View_Anim.play_backwards("Left_Face")
+						%Vent_Enemy._Movement(67)
 					2:
 						%View_Anim.play_backwards("Right_Face")
+						%Vent_Enemy._Movement(67)
+				
 			View_Points.Right:
 				%View_Anim.play("Right_Face")
 		Prev_View = Current_View

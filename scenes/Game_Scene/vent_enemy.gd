@@ -15,8 +15,6 @@ func _ready() -> void:
 	NightData._Update_AI()
 		
 var Current_Position : int = Location.Not_Yet
-var CoolDown_Count : float = 1
-var CoolDown_Timer : float = CoolDown_Count
 
 @onready var Preset_Loation : = [
 	null,
@@ -26,14 +24,10 @@ var CoolDown_Timer : float = CoolDown_Count
 	null]
 
 func _Movement(delta) -> void:
-	CoolDown_Timer -= delta/2
-	if CoolDown_Timer < 0:
-		CoolDown_Timer = CoolDown_Count
-		var SemiHemiFifth_Chance = randi_range(1, 20) 
-		
-		if SemiHemiFifth_Chance <= NightData.Vent_Enemy_AI:
-			Current_Position += 1
-			GameManager.door_enemy_sfx._PlayFootstepSFX()
+	var SemiHemiFifth_Chance = randi_range(1, 20) 
+	if SemiHemiFifth_Chance <= NightData.Vent_Enemy_AI:
+		Current_Position += 1
+		GameManager.door_enemy_sfx._PlayFootstepSFX()
 
 func _Displayer() -> void:
 	if GameManager.Is_Playing:
@@ -80,7 +74,7 @@ func _ATTACK(delta) -> void:
 func _process(delta: float) -> void:
 	_Displayer()
 	if Current_Position < Location.peeking_out:
-		_Movement(delta)
+		pass
 	else:
 		_ATTACK(delta)
 				

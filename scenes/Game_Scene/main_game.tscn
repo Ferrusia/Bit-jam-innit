@@ -246,6 +246,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6
 texture = ExtResource("3_hh7rt")
 
 [node name="Vent_Enemy" type="Node3D" parent="Enemy" unique_id=1346954349]
+unique_name_in_owner = true
 script = ExtResource("5_hxcid")
 
 [node name="Vent_Enemy_SFX" type="Node3D" parent="Enemy/Vent_Enemy" unique_id=1202367982]
@@ -267,6 +268,7 @@ transform = Transform3D(1.4900852, -0.16238666, 0.057240233, 0.16892946, 1.47523
 texture = ExtResource("3_hh7rt")
 
 [node name="Window_Enemy" type="Node3D" parent="Enemy" unique_id=44195928]
+unique_name_in_owner = true
 script = ExtResource("2_l8bu0")
 
 [node name="Window_Enemy_SFX" type="Node3D" parent="Enemy/Window_Enemy" unique_id=1533712208]

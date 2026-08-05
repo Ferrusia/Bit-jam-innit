@@ -81,7 +81,6 @@ func _process(delta: float) -> void:
 	if Current_Position < Location.wholeway:
 		_Movement(delta)
 	else:
-		print("p")
 		_ATTACK(delta)
 				
 func RESET() -> void:
