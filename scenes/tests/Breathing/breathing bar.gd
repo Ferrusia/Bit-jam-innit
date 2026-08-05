@@ -5,7 +5,7 @@ extends Control
 @onready var BPM_Label : Label = %Heart_Rate
 @onready var Audio : Variant
 @onready var AudioPlayer : Variant
-
+var Interval : float = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.Breath_count = 100
@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 	breathingbar.value = GameManager.Breath_count
 	if Input.is_action_pressed("hold_breath") and GameManager.Breath_count > 0:
 		GameManager.Is_Breathing = false
-		print("not breathing")
 		GameManager.Breath_count -= 30 * delta	
 		if AudioPlayer == null:
 			AudioPlayer = AudioStreamPlayer.new()
@@ -42,8 +41,13 @@ func _process(delta: float) -> void:
 		
 	if GameManager.Breath_count < 100:
 		GameManager.Breath_count += 15 * delta
-		
+
+
 	if Input.is_action_pressed("close_eyes"):
+		Interval -= get_process_delta_time()
+		if Interval <= 0:
+			Interval = 1
+			GameManager.Heart_Rate -= 1
 		GameManager.Is_Sleeping = true
 		closed_eyes.color.a = 100.0
 	else:

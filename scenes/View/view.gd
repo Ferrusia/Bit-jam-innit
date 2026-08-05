@@ -26,6 +26,7 @@ func Transition() -> void:
 			View_Points.Right:
 				%View_Anim.play("Right_Face")
 		Prev_View = Current_View
+		GameManager.Heart_Rate += randi_range(1, 3)
 	else:
 		pass
 	

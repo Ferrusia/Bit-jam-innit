@@ -53,7 +53,7 @@ var Sleep_Count : float = 1
 var Sleep_Timer : float = Sleep_Count
 
 func _ATTACK(delta) -> void:
-	if GameManager.Is_Sleeping and %View.Current_View == %View.View_Points.Right:
+	if not GameManager.Is_Breathing and %View.Current_View == %View.View_Points.Right:
 		Sleep_Timer -= delta
 		if Sleep_Timer < 0:
 			Sleep_Timer = Sleep_Count
@@ -69,7 +69,6 @@ func _ATTACK(delta) -> void:
 			GameManager.PSFX(Audio)
 			GameManager.Attack_Player("DoorMan", 25)
 			RESET()
-	
 			
 func _process(delta: float) -> void:
 	_Displayer()

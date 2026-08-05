@@ -16,6 +16,9 @@ var Heart_Rate : int = 84 #in BPM btw, 220 kills u
 
 var Is_Sleeping : bool = false
 
+func _process(delta: float) -> void:
+	Heart_Bound()
+	
 func PSFX(stream: AudioStream):
 	var asp = AudioStreamPlayer.new()
 	add_child(asp)
@@ -34,6 +37,9 @@ func death():
 	UI.dead_label.text = "u dead :sob:"
 	UI.get_node("returnmainmenu").visible = true
 	
+func Heart_Bound() -> void:
+	if Heart_Rate < 84:
+		Heart_Rate = 84
 	
 
 	
