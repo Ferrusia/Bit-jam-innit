@@ -2,9 +2,9 @@ extends Node
 
 var AI: Dictionary = {
 	"Night_1": {
-		"DoorMan": 5,
-		"WindowWoman": 6,
-		"Vent_Enemy": 6,
+		"DoorMan": 20,
+		"WindowWoman": 20,
+		"Vent_Enemy": 20,
 		"FeetLover": 0,
 	},
 	"Night_2": {
@@ -21,6 +21,11 @@ var FeetLover_AI: int = 0
 var Vent_Enemy_AI: int = 0
 
 var AttacksPerNight: Array = [5, 10, 15, 20, 25]
+
+
+
+
+
 
 func _Update_AI() -> void:
 	var current_night_key: String = "Night_" + str(GameManager.Night)

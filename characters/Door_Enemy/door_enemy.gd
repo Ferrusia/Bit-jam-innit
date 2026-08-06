@@ -1,5 +1,8 @@
 extends Node3D
 
+
+
+
 @onready var Audio : Variant
 
 var AI : int = NightData.DoorMan_AI
@@ -13,9 +16,10 @@ enum Location {
 
 func _ready() -> void:
 	NightData._Update_AI()
+	LongWait()
 		
 var Current_Position : int = Location.Not_Yet
-var CoolDown_Count : float = 2.5
+var CoolDown_Count : float = 5
 var CoolDown_Timer : float = CoolDown_Count
 
 @onready var Preset_Loation : = [
@@ -26,15 +30,31 @@ var CoolDown_Timer : float = CoolDown_Count
 	null,
 ]
 
+var go: bool = false
+
+
+var longwait: float
+func LongWait():
+	longwait = randf_range(0,20)
+	await get_tree().create_timer(longwait).timeout
+	go = true
+	print("go =" + str(go))
+	
+	
+
+
 func _Movement(delta) -> void:
-	CoolDown_Timer -= delta
-	if CoolDown_Timer < 0:
-		CoolDown_Timer = CoolDown_Count
-		var SemiHemiFifth_Chance = randi_range(1, 20) 
+	if go == false:
+		return
+	else:
+		CoolDown_Timer -= delta
+		if CoolDown_Timer < 0:
+			CoolDown_Timer = CoolDown_Count
+			var SemiHemiFifth_Chance = randi_range(1, 20) 
 		
-		if SemiHemiFifth_Chance <= NightData.DoorMan_AI:
-			Current_Position += 1
-			GameManager.door_enemy_sfx._PlayFootstepSFX()
+			if SemiHemiFifth_Chance <= NightData.DoorMan_AI:
+				Current_Position += 1
+				GameManager.door_enemy_sfx._PlayFootstepSFX()
 			
 func _Displayer() -> void:
 	if GameManager.Is_Playing:
@@ -47,14 +67,16 @@ func _Displayer() -> void:
 			else:
 				pass
 
-var Evade_Count : float = 2
+var Evade_Count : float = 5
 var Evade_Timer : float = Evade_Count
-var Sleep_Count : float = 1
+var Sleep_Count : float = 1.0
 var Sleep_Timer : float = Sleep_Count
 
 func _ATTACK(delta) -> void:
-	if not GameManager.Is_Breathing and %View.Current_View == %View.View_Points.Right:
+	if Input.is_action_pressed("hold_breath") and %View.Current_View == %View.View_Points.Right:
 		Sleep_Timer -= delta
+		Evade_Timer = Evade_Count
+		print("-> ABWEHR LÄUFT! Restzeit: ", Sleep_Timer)
 		if Sleep_Timer < 0:
 			Sleep_Timer = Sleep_Count
 			RESET()
@@ -63,12 +85,14 @@ func _ATTACK(delta) -> void:
 			GameManager.AttackCount += 1
 	else:
 		Evade_Timer -= delta
+		print("-> FEHLER: BINDUNG NICHT ERFÜLLT! Jumpscare in: ", Evade_Timer)
 		if Evade_Timer < 0:
 			Evade_Timer = Evade_Count
 			Audio = preload("res://sound_library/jumpscare sound.mp3")
 			GameManager.PSFX(Audio)
-			GameManager.Attack_Player("DoorMan", 25)
+			GameManager.Attack_Player("DoorMan", 50)
 			RESET()
+			GameManager.UI.idletimer = 5.0
 			
 func _process(delta: float) -> void:
 	_Displayer()
@@ -82,4 +106,6 @@ func RESET() -> void:
 	CoolDown_Timer = CoolDown_Count
 	Evade_Timer = Evade_Count
 	Sleep_Timer = Sleep_Count
+	go = false
+	LongWait()
 		

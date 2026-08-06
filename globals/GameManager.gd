@@ -16,6 +16,7 @@ var Heart_Rate : int = 84 #in BPM btw, 220 kills u
 
 var Is_Sleeping : bool = false
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	Heart_Bound()
 	
@@ -26,6 +27,7 @@ func PSFX(stream: AudioStream):
 	asp.finished.connect(asp.queue_free) # Delete the node when done
 	asp.play()
 
+@warning_ignore("unused_parameter")
 func Attack_Player(Name : String, BPM : int) -> void:
 	print("Heart Rate : " + str(Heart_Rate))
 	Heart_Rate += BPM

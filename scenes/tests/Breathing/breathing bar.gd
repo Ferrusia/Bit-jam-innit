@@ -6,6 +6,7 @@ extends Control
 @onready var Audio : Variant
 @onready var AudioPlayer : Variant
 var Interval : float = 1
+var idletimer: float = 5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.Breath_count = 100
@@ -19,6 +20,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	UI_update()
+	idletimer -= delta
 	BPM_Label.text = str(GameManager.Heart_Rate)
 	breathingbar.value = GameManager.Breath_count
 	if Input.is_action_pressed("hold_breath") and GameManager.Breath_count > 0:
@@ -29,15 +31,16 @@ func _process(delta: float) -> void:
 			AudioPlayer.stream = preload("res://sound_library/Atem anhalten struggle.mp3")
 			add_child(AudioPlayer)
 			AudioPlayer.play()
+			
+	if GameManager.Heart_Rate > 220:
+		GameManager.death()
+			
 	else:
 		GameManager.Is_Breathing = true
 		if AudioPlayer != null:
 			AudioPlayer.stop()
 			AudioPlayer.queue_free()
 			AudioPlayer == null
-		
-	
-		
 		
 	if GameManager.Breath_count < 100:
 		GameManager.Breath_count += 15 * delta
@@ -54,6 +57,11 @@ func _process(delta: float) -> void:
 		GameManager.Is_Sleeping = false
 		closed_eyes.color.a = 0.0
 		
+	if idletimer <= 0:
+		idletimer = 1
+		GameManager.Heart_Rate -= 1
+	
+		
 	if GameManager.Breath_count <= 0:
 		GameManager.death()
 
@@ -67,6 +75,11 @@ func _process(delta: float) -> void:
 		Audio = preload("res://sound_library/luft holen nach ersticken 2.mp3")
 		GameManager.PSFX(Audio)
 	
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey or event is InputEventMouseButton:
+		idletimer = 5
 
 func _on_returnmainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
