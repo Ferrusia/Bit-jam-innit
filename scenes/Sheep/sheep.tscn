@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dfs8jskn4b7jo"]
+
+[ext_resource type="Texture2D" uid="uid://6c55ewfoajbr" path="res://icon.svg" id="1_4ynpj"]
+[ext_resource type="Script" uid="uid://b75ri3vni15li" path="res://scenes/Sheep/sheep.gd" id="2_aimuf"]
+
+[node name="Sheep" type="Sprite2D" unique_id=416678545]
+texture = ExtResource("1_4ynpj")
+script = ExtResource("2_aimuf")
