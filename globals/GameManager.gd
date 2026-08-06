@@ -38,6 +38,7 @@ func Attack_Player(Name : String, BPM : int) -> void:
 func death():
 	UI.dead_label.text = "u dead :sob:"
 	UI.get_node("returnmainmenu").visible = true
+	AttackCount = 0
 	
 func Heart_Bound() -> void:
 	if Heart_Rate < 84:

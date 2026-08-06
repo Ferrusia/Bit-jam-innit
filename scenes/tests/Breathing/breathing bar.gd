@@ -97,7 +97,8 @@ func UI_update():
 				GameManager.Night += 1
 				GameManager.AttackCount = 0
 				GameManager.Heart_Rate = 84
-				get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
+				
+				get_tree().change_scene_to_file("res://scenes/BetweenNights/betweennights.tscn")
 		else:
 			Sleeping = 0
 		

@@ -66,7 +66,7 @@ func _Displayer() -> void:
 			else:
 				pass
 
-var Evade_Count : float = 5
+var Evade_Count : float = 10
 var Evade_Timer : float = Evade_Count
 var Sleep_Count : float = 1
 var Sleep_Timer : float = Sleep_Count
@@ -74,6 +74,7 @@ var Sleep_Timer : float = Sleep_Count
 func _ATTACK(delta) -> void:
 	if Input.is_action_pressed("hold_breath") and %View.Current_View == %View.View_Points.Left:
 		Sleep_Timer -= delta
+		Evade_Timer = Evade_Count
 		if Sleep_Timer < 0:
 			Sleep_Timer = Sleep_Count
 			RESET()

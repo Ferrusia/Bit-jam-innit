@@ -67,7 +67,7 @@ func _Displayer() -> void:
 			else:
 				pass
 
-var Evade_Count : float = 5
+var Evade_Count : float = 10
 var Evade_Timer : float = Evade_Count
 var Sleep_Count : float = 1.0
 var Sleep_Timer : float = Sleep_Count
@@ -76,7 +76,6 @@ func _ATTACK(delta) -> void:
 	if Input.is_action_pressed("hold_breath") and %View.Current_View == %View.View_Points.Right:
 		Sleep_Timer -= delta
 		Evade_Timer = Evade_Count
-		print("-> ABWEHR LÄUFT! Restzeit: ", Sleep_Timer)
 		if Sleep_Timer < 0:
 			Sleep_Timer = Sleep_Count
 			RESET()
@@ -85,7 +84,6 @@ func _ATTACK(delta) -> void:
 			GameManager.AttackCount += 1
 	else:
 		Evade_Timer -= delta
-		print("-> FEHLER: BINDUNG NICHT ERFÜLLT! Jumpscare in: ", Evade_Timer)
 		if Evade_Timer < 0:
 			Evade_Timer = Evade_Count
 			Audio = preload("res://sound_library/jumpscare sound.mp3")

@@ -58,7 +58,7 @@ func _Displayer() -> void:
 			else:
 				pass
 
-var Evade_Count : float = 5
+var Evade_Count : float = 10
 var Evade_Timer : float = Evade_Count
 var Sleep_Count : float = 1
 var Sleep_Timer : float = Sleep_Count
