@@ -17,6 +17,7 @@ var Is_Dead : bool = false
 var Heart_Rate : int = 84 #in BPM btw, 220 kills u
 
 var Is_Sleeping : bool = false
+var Deaths : int = 0
 
 func _process(delta: float) -> void:
 	Heart_Bound()

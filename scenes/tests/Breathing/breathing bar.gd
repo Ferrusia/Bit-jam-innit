@@ -82,13 +82,16 @@ func UI_update():
 		if Input.is_action_pressed("close_eyes"):
 			Sleeping += get_process_delta_time()
 			if Sleeping >= 2:
-				GameManager.Night += 1
-				GameManager.AttackCount = 0
-				GameManager.Heart_Rate = 84
-				get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
+				_BeatNight()
 		else:
 			Sleeping = 0
 		
 	else:
 		$DebugLabel.text = str(GameManager.AttackCount) + " times evaded death"
+	
+func _BeatNight() -> void:
+	GameManager.Night += 1
+	GameManager.AttackCount = 0
+	GameManager.Heart_Rate = 84
+	get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
 	
