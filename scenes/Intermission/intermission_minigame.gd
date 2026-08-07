@@ -13,6 +13,9 @@ func _process(delta: float) -> void:
 	if Minigame_Timer < 0:
 		CHECK()
 		get_tree().change_scene_to_file("res://scenes/Game_Scene/main_game.tscn")
+	if Input.is_action_just_pressed("Forward"):
+		Minigame_Timer = 2
+		
 func CHECK() -> void:
 	if True_Sheep_Count == Sheep_Count:
 		GameManager.AttackCount += 5

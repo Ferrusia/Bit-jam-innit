@@ -6,6 +6,24 @@
 [node name="Intermission_Minigame" type="Node2D" unique_id=1635143695]
 script = ExtResource("1_y84kn")
 
+[node name="Title" type="Label" parent="." unique_id=1230907049]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.5
+offset_top = -450.0
+offset_right = 435.5
+offset_bottom = -275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "COUNT SHEEP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="View" type="Camera2D" parent="." unique_id=1178964960]
 
 [node name="Sheep_Spawner" type="Node2D" parent="." unique_id=898136611]

@@ -210,6 +210,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71958566, -0.47664356, 1.11
 script = ExtResource("9_ojhqs")
 
 [node name="UI" parent="." unique_id=1069136006 instance=ExtResource("1_ojhqs")]
+unique_name_in_owner = true
 
 [node name="View_Anim" type="AnimationPlayer" parent="." unique_id=1447095762]
 unique_name_in_owner = true

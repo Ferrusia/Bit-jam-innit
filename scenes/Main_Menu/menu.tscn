@@ -11,28 +11,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xppam")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2034334308]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.0
-offset_top = -98.0
-offset_right = 71.0
-offset_bottom = 98.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
+[node name="ContinueNight" type="Label" parent="." unique_id=1338126515]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 693.0
+offset_top = 563.0
+offset_right = 1038.0
+offset_bottom = 608.0
+theme_override_font_sizes/font_size = 32
+text = "Night "
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=314733070]
-layout_mode = 2
+[node name="New_Game" type="Button" parent="." unique_id=314733070]
+layout_mode = 0
+offset_left = 787.5
+offset_top = 416.0
+offset_right = 1132.5
+offset_bottom = 512.0
 theme_override_font_sizes/font_size = 64
-text = "Play"
+text = "New Game"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1140856819]
-layout_mode = 2
+[node name="Continue" type="Button" parent="." unique_id=1687207020]
+layout_mode = 0
+offset_left = 787.5
+offset_top = 611.0
+offset_right = 1132.5
+offset_bottom = 707.0
+theme_override_font_sizes/font_size = 64
+text = "Continue"
+
+[node name="Quit" type="Button" parent="." unique_id=1140856819]
+layout_mode = 0
+offset_left = 787.5
+offset_top = 902.0
+offset_right = 1132.5
+offset_bottom = 998.0
 theme_override_font_sizes/font_size = 64
 text = "Quit"
 
@@ -47,5 +61,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="New_Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

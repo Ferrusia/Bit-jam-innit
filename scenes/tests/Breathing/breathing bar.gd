@@ -64,16 +64,55 @@ func _process(delta: float) -> void:
 		
 	if GameManager.Breath_count <= 0:
 		GameManager.death()
+	if not GameManager.Is_Dead:
+		UI_update()
+		BPM_Label.text = str(GameManager.Heart_Rate)
+		breathingbar.value = GameManager.Breath_count
+		if Input.is_action_pressed("hold_breath") and GameManager.Breath_count > 0:
+			GameManager.Is_Breathing = false
+			GameManager.Breath_count -= 30 * delta	
+			if AudioPlayer == null:
+				AudioPlayer = AudioStreamPlayer.new()
+				AudioPlayer.stream = preload("res://sound_library/Atem anhalten struggle.mp3")
+				add_child(AudioPlayer)
+				AudioPlayer.play()
+		else:
+			GameManager.Is_Breathing = true
+			if AudioPlayer != null:
+				AudioPlayer.stop()
+				AudioPlayer.queue_free()
+				AudioPlayer == null
+			
+		
+			
+			
+		if GameManager.Breath_count < 100:
+			GameManager.Breath_count += 15 * delta
 
-	if Input.is_action_just_released("hold_breath") and breathingbar.value > 66 :
-		Audio = preload("res://sound_library/luft holen nach ersticken 3.mp3")
-		GameManager.PSFX(Audio)
-	elif Input.is_action_just_released("hold_breath") and breathingbar.value > 33:
-		Audio = preload("res://sound_library/luft holen nach ersticken 1.mp3")
-		GameManager.PSFX(Audio)
-	elif Input.is_action_just_released("hold_breath") and breathingbar.value > 0:
-		Audio = preload("res://sound_library/luft holen nach ersticken 2.mp3")
-		GameManager.PSFX(Audio)
+
+		if Input.is_action_pressed("close_eyes"):
+			Interval -= get_process_delta_time()
+			if Interval <= 0:
+				Interval = 1
+				GameManager.Heart_Rate -= 1
+			GameManager.Is_Sleeping = true
+			closed_eyes.color.a = 100.0
+		else:
+			GameManager.Is_Sleeping = false
+			closed_eyes.color.a = 0.0
+			
+		if GameManager.Breath_count <= 0:
+			GameManager.death()
+
+		if Input.is_action_just_released("hold_breath") and breathingbar.value > 66 :
+			Audio = preload("res://sound_library/luft holen nach ersticken 3.mp3")
+			GameManager.PSFX(Audio)
+		elif Input.is_action_just_released("hold_breath") and breathingbar.value > 33:
+			Audio = preload("res://sound_library/luft holen nach ersticken 1.mp3")
+			GameManager.PSFX(Audio)
+		elif Input.is_action_just_released("hold_breath") and breathingbar.value > 0:
+			Audio = preload("res://sound_library/luft holen nach ersticken 2.mp3")
+			GameManager.PSFX(Audio)
 	
 
 
@@ -83,7 +122,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_returnmainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
-	pass # Replace with function body.
+	GameManager.Is_Dead = false
 
 var Sleeping : float = 0
 func UI_update():
@@ -99,9 +138,28 @@ func UI_update():
 				GameManager.Heart_Rate = 84
 				
 				get_tree().change_scene_to_file("res://scenes/BetweenNights/betweennights.tscn")
+				_BeatNight()
 		else:
 			Sleeping = 0
 		
 	else:
 		$DebugLabel.text = str(GameManager.AttackCount) + " times evaded death"
 	
+func _BeatNight() -> void:
+	GameManager.Night += 1
+	
+	GameManager.AttackCount = 0
+	GameManager.Heart_Rate = 84
+	
+	await get_tree().create_timer(0.2).timeout
+	
+	if GameManager.Night == 6: 
+		get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
+	elif GameManager.Night > 6:
+		get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
+		GameManager.Night == 6
+		
+	elif GameManager.Night < 6:
+		get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
+	
+	SaveManager.save_game(SaveManager.Data)

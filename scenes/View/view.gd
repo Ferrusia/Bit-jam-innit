@@ -9,8 +9,9 @@ enum View_Points{
 var Current_View : int = View_Points.Front
 var Prev_View : int = 67
 func _process(delta: float) -> void:
-	View_Logic(delta)
-	Transition()
+	if not GameManager.Is_Dead:
+		View_Logic(delta)
+		Transition()
 
 func Transition() -> void:
 	if Current_View != Prev_View:
@@ -37,6 +38,7 @@ var CoolDown_Bound : float = 0.2
 var CoolDown_Timer : float = CoolDown_Bound
 
 func View_Logic(delta) -> void:
+	
 	CoolDown_Timer -= delta
 	if CoolDown_Timer < 0:
 		if Input.is_action_just_pressed("Left"):

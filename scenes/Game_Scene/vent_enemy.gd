@@ -22,7 +22,8 @@ var Current_Position : int = Location.Not_Yet
 	%vePos_1,
 	%vePos_2,
 	%vePos_3,
-	null]
+	null
+	]
 
 
 var go: bool = false
@@ -93,10 +94,9 @@ func _ATTACK(delta) -> void:
 			
 func _process(delta: float) -> void:
 	_Displayer()
-	if Current_Position < Location.peeking_out:
-		pass
-	else:
+	if not Current_Position < Location.Attack:
 		_ATTACK(delta)
+		
 				
 func RESET() -> void:
 	Current_Position = Location.Not_Yet
