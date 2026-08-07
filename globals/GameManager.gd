@@ -12,6 +12,8 @@ var Night : int = 1
 var SleepyCount : int = 0
 var Is_Playing : bool = true
 
+var Is_Dead : bool = false
+
 var Heart_Rate : int = 84 #in BPM btw, 220 kills u
 
 var Is_Sleeping : bool = false

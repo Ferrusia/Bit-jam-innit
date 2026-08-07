@@ -5,8 +5,11 @@ extends Node3D
 var Beep_Timer : float = 0
  
 func _process(delta: float) -> void:
-	var Beep_Interval = (60.00 / GameManager.Heart_Rate) 
-	Beep_Timer += delta
-	if Beep_Timer > Beep_Interval:
-		Beep_Timer -= Beep_Interval
-		GameManager.PSFX(Audio) 
+	if not GameManager.Is_Dead:
+		var Beep_Interval = (60.00 / GameManager.Heart_Rate) 
+		Beep_Timer += delta
+		if Beep_Timer > Beep_Interval:
+			Beep_Timer -= Beep_Interval
+			GameManager.PSFX(Audio) 
+	else:
+		pass

@@ -21,7 +21,8 @@ var Current_Position : int = Location.Not_Yet
 	%vePos_1,
 	%vePos_2,
 	%vePos_3,
-	null]
+	null
+	]
 
 func _Movement(delta) -> void:
 	var SemiHemiFifth_Chance = randi_range(1, 20) 
@@ -46,37 +47,17 @@ var Sleep_Count : float = 1
 var Sleep_Timer : float = Sleep_Count
 
 func _ATTACK(delta) -> void:
-	if not GameManager.Is_Sleeping:
-		Evade_Timer -= delta
-		if Evade_Timer < 0  and GameManager.Is_Breathing == true:
-			Evade_Timer = Evade_Count
-			Audio = preload("res://sound_library/jumpscare sound.mp3")
-			GameManager.PSFX(Audio)
-			GameManager.Attack_Player("Vent_Enemy", 25)
-			RESET()
-		elif Evade_Timer < 0  and GameManager.Is_Breathing == false:
-			RESET()
-			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
-			GameManager.PSFX(Audio)
-	
-		
-		
-	else:
-		Sleep_Timer -= delta
-		if Sleep_Timer < 0:
-			Sleep_Timer = Sleep_Count
-			RESET()
-			Audio = preload("res://sound_library/Minecraft cave noises 4.mp3")
-			GameManager.PSFX(Audio)
-			GameManager.AttackCount += 1
+	Audio = preload("res://sound_library/jumpscare sound.mp3")
+	GameManager.PSFX(Audio)
+	GameManager.Attack_Player("Vent_Enemy", 50)
+	RESET()
 			
 			
 func _process(delta: float) -> void:
 	_Displayer()
-	if Current_Position < Location.peeking_out:
-		pass
-	else:
+	if not Current_Position < Location.Attack:
 		_ATTACK(delta)
+		
 				
 func RESET() -> void:
 	Current_Position = Location.Not_Yet
