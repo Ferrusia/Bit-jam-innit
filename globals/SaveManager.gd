@@ -4,7 +4,7 @@ const SAVE_PATH := "user://savegame.json"
 
 # Saving data
 var Original_Data : = {
-		"Night" : 0,
+		"Night" : 1,
 		"Deaths" : 0
 	}
 
@@ -23,6 +23,7 @@ func Load_Game() -> void:
 		
 func Reset_Game() -> Dictionary:
 	var reset_data := Original_Data.duplicate(true)
+	print("Duplicate Data : " + str(reset_data))
 	save_game(reset_data)
 	return reset_data
 	

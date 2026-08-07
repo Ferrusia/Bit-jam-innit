@@ -4,14 +4,44 @@ var AI: Dictionary = {
 	"Night_1": {
 		"DoorMan": 5,
 		"WindowWoman": 6,
-		"Vent_Enemy": 6,
+		"Vent_Enemy": 3,
 		"FeetLover": 0,
 	},
 	"Night_2": {
 		"DoorMan": 7,
 		"WindowWoman": 5,
-		"Vent_Enemy": 0,
+		"Vent_Enemy": 6,
 		"FeetLover": 0,
+	},
+	"Night_3": {
+		"DoorMan": 12,
+		"WindowWoman": 10,
+		"Vent_Enemy": 9,
+		"FeetLover": 5,
+	},
+	"Night_4": {
+		"DoorMan": 15,
+		"WindowWoman": 14,
+		"Vent_Enemy": 13,
+		"FeetLover": 10,
+	},
+	"Night_5": {
+		"DoorMan": 19,
+		"WindowWoman": 20,
+		"Vent_Enemy": 17,
+		"FeetLover": 15,
+	},
+	"Night_6": {
+		"DoorMan": 20,
+		"WindowWoman": 20,
+		"Vent_Enemy": 20,
+		"FeetLover": 20,
+	},
+	"Night_7": {
+		"DoorMan": 20,
+		"WindowWoman": 20,
+		"Vent_Enemy": 20,
+		"FeetLover": 20,
 	}
 }
 

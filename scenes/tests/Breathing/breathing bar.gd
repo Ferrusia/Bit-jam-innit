@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 
 func _on_returnmainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
-	pass # Replace with function body.
+	GameManager.Is_Dead = false
 
 var Sleeping : float = 0
 func UI_update():
@@ -93,5 +93,8 @@ func _BeatNight() -> void:
 	GameManager.Night += 1
 	GameManager.AttackCount = 0
 	GameManager.Heart_Rate = 84
+	
+	await get_tree().create_timer(0.2).timeout
+	SaveManager.save_game(SaveManager.Data)
 	get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
 	

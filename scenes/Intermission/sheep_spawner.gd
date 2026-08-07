@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var Sheep = preload("res://scenes/Sheep/sheep.tscn")
 var Intermission : float = 0
+
 func _process(delta: float) -> void:
 	Intermission += delta
 	if Intermission >= 0.25 and $"..".Minigame_Timer > 5:

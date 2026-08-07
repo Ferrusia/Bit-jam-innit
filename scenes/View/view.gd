@@ -38,6 +38,7 @@ var CoolDown_Bound : float = 0.2
 var CoolDown_Timer : float = CoolDown_Bound
 
 func View_Logic(delta) -> void:
+	
 	CoolDown_Timer -= delta
 	if CoolDown_Timer < 0:
 		if Input.is_action_just_pressed("Left"):

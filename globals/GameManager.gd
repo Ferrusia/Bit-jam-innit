@@ -21,7 +21,11 @@ var Deaths : int = 0
 
 func _process(delta: float) -> void:
 	Heart_Bound()
-	
+	if Heart_Rate > 220:
+		death()
+		GameManager.Deaths += 1
+		SaveManager.save_game(SaveManager.Data)
+		
 func PSFX(stream: AudioStream):
 	var asp = AudioStreamPlayer.new()
 	add_child(asp)
@@ -32,13 +36,13 @@ func PSFX(stream: AudioStream):
 func Attack_Player(Name : String, BPM : int) -> void:
 	print("Heart Rate : " + str(Heart_Rate))
 	Heart_Rate += BPM
-	if Heart_Rate > 220:
-		death()
+	
 	
 	
 func death():
 	UI.dead_label.text = "u dead :sob:"
 	UI.get_node("returnmainmenu").visible = true
+	GameManager.Is_Dead = true
 	
 func Heart_Bound() -> void:
 	if Heart_Rate < 84:
