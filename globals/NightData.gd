@@ -37,12 +37,6 @@ var AI: Dictionary = {
 		"Vent_Enemy": 20,
 		"FeetLover": 20,
 	},
-	"Night_7": {
-		"DoorMan": 20,
-		"WindowWoman": 20,
-		"Vent_Enemy": 20,
-		"FeetLover": 20,
-	}
 }
 
 var DoorMan_AI: int = 0
@@ -50,8 +44,8 @@ var WindowWoman_AI: int = 0
 var FeetLover_AI: int = 0
 var Vent_Enemy_AI: int = 0
 
-var AttacksPerNight: Array = [5, 10, 15, 20, 25]
-
+var AttacksPerNight: Array = [5, 10, 15, 20, 25, 40, 9999999]
+	
 func _Update_AI() -> void:
 	var current_night_key: String = "Night_" + str(GameManager.Night)
 	
@@ -65,6 +59,5 @@ func _Update_AI() -> void:
 		push_warning("No AI configuration found for: " + current_night_key)
 		
 		
-func	_win():
-	GameManager.Night += 1
-	
+
+		

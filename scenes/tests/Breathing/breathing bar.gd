@@ -91,10 +91,19 @@ func UI_update():
 	
 func _BeatNight() -> void:
 	GameManager.Night += 1
+	
 	GameManager.AttackCount = 0
 	GameManager.Heart_Rate = 84
 	
 	await get_tree().create_timer(0.2).timeout
-	SaveManager.save_game(SaveManager.Data)
-	get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
 	
+	if GameManager.Night == 6: 
+		get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
+	elif GameManager.Night > 6:
+		get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
+		GameManager.Night == 6
+		
+	elif GameManager.Night < 6:
+		get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
+	
+	SaveManager.save_game(SaveManager.Data)

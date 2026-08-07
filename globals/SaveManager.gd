@@ -57,7 +57,7 @@ func Load_Data() -> Dictionary:
 	if error == OK:
 		var data = json.get_data()
 		if data is Dictionary:
-			print("Game loaded successfully.")
+			
 			return data
 	
 	push_error("JSON Parse Error: ", json.get_error_message(), " at line ", json.get_error_line())
