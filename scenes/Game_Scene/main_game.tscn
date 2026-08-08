@@ -3,13 +3,26 @@
 [ext_resource type="PackedScene" uid="uid://c3yytjkuy2qvp" path="res://scenes/tests/Breathing/breathing and eyes closed .tscn" id="1_ojhqs"]
 [ext_resource type="Script" uid="uid://uryc5l8toamw" path="res://sound_manager/environment_sfx.gd" id="1_qd4n2"]
 [ext_resource type="Script" uid="uid://dkrp6wadiciyc" path="res://scenes/Game_Scene/window_enemy.gd" id="2_l8bu0"]
+[ext_resource type="Texture2D" uid="uid://eih7s8hov4q3" path="res://texture_library/frontview.jpg" id="2_rvgk5"]
 [ext_resource type="Script" uid="uid://d0u63f84wmjpx" path="res://characters/Door_Enemy/door_enemy.gd" id="3_4lnj8"]
+[ext_resource type="Texture2D" uid="uid://bt402lk2ajryx" path="res://texture_library/doorview.jpg" id="3_f5b6m"]
 [ext_resource type="Texture2D" uid="uid://6c55ewfoajbr" path="res://icon.svg" id="3_hh7rt"]
+[ext_resource type="Texture2D" uid="uid://drhttmjgrkrtx" path="res://texture_library/windowview.jpg" id="4_5y4vu"]
 [ext_resource type="Script" uid="uid://dhs3oouamnuox" path="res://sound_manager/door_enemy_sfx.gd" id="4_oly57"]
 [ext_resource type="Script" uid="uid://c4nfmxlksqrm8" path="res://scenes/Game_Scene/vent_enemy.gd" id="5_hxcid"]
 [ext_resource type="Script" uid="uid://bulgx36clo6dv" path="res://scenes/Game_Scene/vent_enemy_sfx.gd" id="6_iajbn"]
 [ext_resource type="Script" uid="uid://dgaulq15xt7da" path="res://characters/Feet_Tickler/feet_tickler.gd" id="7_8wc2i"]
 [ext_resource type="Script" uid="uid://c1eo53j8bfisx" path="res://scenes/View/view.gd" id="9_ojhqs"]
+[ext_resource type="Texture2D" uid="uid://b2i3sdv4xxat" path="res://texture_library/doorman.jpg" id="11_4x1ke"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rrp8"]
+albedo_texture = ExtResource("2_rvgk5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ugd4x"]
+albedo_texture = ExtResource("3_f5b6m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kaab1"]
+albedo_texture = ExtResource("4_5y4vu")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ojhqs"]
 size = Vector3(3.2399902, 0.49816513, 1)
@@ -140,6 +153,9 @@ _data = {
 &"Right_Face": SubResource("Animation_4lnj8")
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pj4of"]
+load_path = "res://.godot/imported/doorman.jpg-196664f0a13719a809ff8d90a5b6b859.s3tc.ctex"
+
 [node name="Main_Game" type="Node3D" unique_id=235772255]
 
 [node name="Environment_SFX" type="Node3D" parent="." unique_id=700970850]
@@ -150,6 +166,7 @@ script = ExtResource("1_qd4n2")
 [node name="MeshInstance3D" type="CSGBox3D" parent="World" unique_id=1294238406]
 transform = Transform3D(1, 0, 0, 0, 4.788, 0, 0, 0, 0.35627115, 0.40249634, 0, -10.619077)
 size = Vector3(9.335388, 1, 21.97461)
+material = SubResource("StandardMaterial3D_4rrp8")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="World/MeshInstance3D" unique_id=832038088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0787396, 0.15347289, 2.619753)
@@ -159,6 +176,7 @@ size = Vector3(1, 0.17718506, 19.86676)
 [node name="MeshInstance3D2" type="CSGBox3D" parent="World" unique_id=1859387800]
 transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, -1.8303702, 0, -1.7791147)
 size = Vector3(10.996826, 1, 1)
+material = SubResource("StandardMaterial3D_ugd4x")
 
 [node name="MeshInstance3D3" type="CSGBox3D" parent="World/MeshInstance3D2" unique_id=690204607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3724048, -0.11431884, -0.010009289)
@@ -190,6 +208,7 @@ size = Vector3(14.006561, 1, 1)
 [node name="Window_Wall" type="CSGBox3D" parent="World" unique_id=152572568]
 transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, 4.895754, 0, -1.740571)
 size = Vector3(12.233337, 1, 1)
+material = SubResource("StandardMaterial3D_kaab1")
 
 [node name="MeshInstance3D4" type="CSGBox3D" parent="World/Window_Wall" unique_id=1040086561]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4465804, -0.0061645494, -0.23608398)
@@ -233,17 +252,20 @@ script = ExtResource("4_oly57")
 [node name="Pos_1" type="Sprite3D" parent="Enemy/Door_Enemy" unique_id=1285506893]
 unique_name_in_owner = true
 transform = Transform3D(1.024927, 0, 1.717418, 0, 2, 0, -1.717418, 0, 1.024927, -9.505014, -0.8385669, -2.2095227)
-texture = ExtResource("3_hh7rt")
+pixel_size = 0.002
+texture = SubResource("CompressedTexture2D_pj4of")
 
 [node name="Pos_2" type="Sprite3D" parent="Enemy/Door_Enemy" unique_id=1225739946]
 unique_name_in_owner = true
 transform = Transform3D(-0.8737143, 0, 1.2192718, 0, 1.5, 0, -1.2192718, 0, -0.8737143, -2.493997, 0.18619311, 2.404659)
-texture = ExtResource("3_hh7rt")
+pixel_size = 0.002
+texture = ExtResource("11_4x1ke")
 
 [node name="Pos_3" type="Sprite3D" parent="Enemy/Door_Enemy" unique_id=293195996]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6685178, -1.4002426, 0.8366108)
-texture = ExtResource("3_hh7rt")
+pixel_size = 0.002
+texture = ExtResource("11_4x1ke")
 
 [node name="Vent_Enemy" type="Node3D" parent="Enemy" unique_id=1346954349]
 unique_name_in_owner = true
