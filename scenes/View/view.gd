@@ -8,6 +8,10 @@ enum View_Points{
 
 var Current_View : int = View_Points.Front
 var Prev_View : int = 67
+
+func _ready() -> void:
+	GameManager.Is_Sleeping = false
+
 func _process(delta: float) -> void:
 	if not GameManager.Is_Dead:
 		View_Logic(delta)

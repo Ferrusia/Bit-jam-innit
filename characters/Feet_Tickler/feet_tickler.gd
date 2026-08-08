@@ -8,13 +8,11 @@ var AI : int = 0
 
 var go: bool = false
 
-
 var longwait: float
 func LongWait():
 	longwait = randf_range(0,20)
 	await get_tree().create_timer(longwait).timeout
 	go = true
-	print("go =" + str(go))
 	
 	
 func _ready():
@@ -27,10 +25,12 @@ func _process(delta: float) -> void:
 
 		AI = NightData.FeetLover_AI
 		position.y += Speed * AI * delta * Dir# TODO : FIX TS
+		
 		if Input.is_action_pressed("Breathe"):
 			Dir = -1.25
 		else:
 			Dir = 1.25
+			
 		if global_position.y >= 1.5:
 			global_position = Origin
 			GameManager.Attack_Player("Feet_Tickler", 25)
@@ -38,3 +38,6 @@ func _process(delta: float) -> void:
 			GameManager.UI.idletimer = 5.0
 			go = false
 			LongWait()
+			
+	
+			

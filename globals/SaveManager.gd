@@ -34,7 +34,6 @@ func save_game(data: Dictionary) -> void:
 	if file:
 		file.store_string(json_string)
 		file.close()
-		print("Game saved successfully.")
 	else:
 		push_error("Failed to open file for writing: ", FileAccess.get_open_error())
 

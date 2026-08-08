@@ -6,7 +6,7 @@ var Beep_Timer : float = 0
  
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Backwards"):
-		%UI._BeatNight()
+		GameManager.AttackCount += 1
 	
 	if not GameManager.Is_Dead:
 		var Beep_Interval = (60.00 / GameManager.Heart_Rate) 

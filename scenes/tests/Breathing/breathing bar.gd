@@ -19,6 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	_BeatNight()
 	UI_update()
 	idletimer -= delta
 	BPM_Label.text = str(GameManager.Heart_Rate)
@@ -115,7 +116,7 @@ func _process(delta: float) -> void:
 			GameManager.PSFX(Audio)
 	
 
-
+var Night_Beaten : bool = false
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey or event is InputEventMouseButton:
 		idletimer = 5
@@ -136,30 +137,29 @@ func UI_update():
 				GameManager.Night += 1
 				GameManager.AttackCount = 0
 				GameManager.Heart_Rate = 84
+				Night_Beaten = true
 				
-				get_tree().change_scene_to_file("res://scenes/BetweenNights/betweennights.tscn")
-				_BeatNight()
 		else:
 			Sleeping = 0
 		
 	else:
 		$DebugLabel.text = str(GameManager.AttackCount) + " times evaded death"
-	
+
+var Delay : float = 0
 func _BeatNight() -> void:
-	GameManager.Night += 1
 	
-	GameManager.AttackCount = 0
-	GameManager.Heart_Rate = 84
-	
-	await get_tree().create_timer(0.2).timeout
-	
-	if GameManager.Night == 6: 
-		get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
-	elif GameManager.Night > 6:
-		get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
-		GameManager.Night == 6
-		
-	elif GameManager.Night < 6:
-		get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
-	
-	SaveManager.save_game(SaveManager.Data)
+	if Night_Beaten:
+		Delay += get_process_delta_time()
+		if Delay >= 0.2:
+			Delay = 0
+			
+			if GameManager.Night == 6: 
+				get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
+			elif GameManager.Night > 6:
+				get_tree().change_scene_to_file("res://scenes/Main_Menu/menu.tscn")
+				GameManager.Night == 6
+				
+			elif GameManager.Night < 6:
+				get_tree().change_scene_to_file("res://scenes/Intermission/intermission_minigame.tscn")
+			SaveManager.save_game(SaveManager.Data)
+			Night_Beaten = false
