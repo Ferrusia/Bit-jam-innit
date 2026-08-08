@@ -2,14 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://c3yytjkuy2qvp" path="res://scenes/tests/Breathing/breathing and eyes closed .tscn" id="1_ojhqs"]
 [ext_resource type="Script" uid="uid://uryc5l8toamw" path="res://sound_manager/environment_sfx.gd" id="1_qd4n2"]
+[ext_resource type="Texture2D" uid="uid://bivh4s8rcfkfj" path="res://texture_library/frontview.png" id="2_5y4vu"]
 [ext_resource type="Script" uid="uid://dkrp6wadiciyc" path="res://scenes/Game_Scene/window_enemy.gd" id="2_l8bu0"]
 [ext_resource type="Script" uid="uid://d0u63f84wmjpx" path="res://characters/Door_Enemy/door_enemy.gd" id="3_4lnj8"]
+[ext_resource type="Texture2D" uid="uid://bk4ybptrvmm5m" path="res://texture_library/doorview.png" id="3_4x1ke"]
 [ext_resource type="Texture2D" uid="uid://6c55ewfoajbr" path="res://icon.svg" id="3_hh7rt"]
+[ext_resource type="Texture2D" uid="uid://dav5wtv86llsj" path="res://texture_library/windowview.jpeg" id="4_4rrp8"]
 [ext_resource type="Script" uid="uid://dhs3oouamnuox" path="res://sound_manager/door_enemy_sfx.gd" id="4_oly57"]
 [ext_resource type="Script" uid="uid://c4nfmxlksqrm8" path="res://scenes/Game_Scene/vent_enemy.gd" id="5_hxcid"]
 [ext_resource type="Script" uid="uid://bulgx36clo6dv" path="res://scenes/Game_Scene/vent_enemy_sfx.gd" id="6_iajbn"]
 [ext_resource type="Script" uid="uid://dgaulq15xt7da" path="res://characters/Feet_Tickler/feet_tickler.gd" id="7_8wc2i"]
 [ext_resource type="Script" uid="uid://c1eo53j8bfisx" path="res://scenes/View/view.gd" id="9_ojhqs"]
+[ext_resource type="Texture2D" uid="uid://cwixrsov8325a" path="res://texture_library/door_enemy.png" id="11_ugd4x"]
+[ext_resource type="Texture2D" uid="uid://ct8uvd66uqmn0" path="res://texture_library/vent_enemy.png" id="14_kaab1"]
+[ext_resource type="Texture2D" uid="uid://coc54f2cne5by" path="res://texture_library/window_enemy.png" id="16_pj4of"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82wc0"]
+albedo_texture = ExtResource("2_5y4vu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya3qd"]
+albedo_texture = ExtResource("3_4x1ke")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njnst"]
+albedo_texture = ExtResource("4_4rrp8")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ojhqs"]
 size = Vector3(3.2399902, 0.49816513, 1)
@@ -150,6 +165,7 @@ script = ExtResource("1_qd4n2")
 [node name="MeshInstance3D" type="CSGBox3D" parent="World" unique_id=1294238406]
 transform = Transform3D(1, 0, 0, 0, 4.788, 0, 0, 0, 0.35627115, 0.40249634, 0, -10.619077)
 size = Vector3(9.335388, 1, 21.97461)
+material = SubResource("StandardMaterial3D_82wc0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="World/MeshInstance3D" unique_id=832038088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0787396, 0.15347289, 2.619753)
@@ -158,6 +174,7 @@ size = Vector3(1, 0.17718506, 19.86676)
 
 [node name="MeshInstance3D2" type="CSGBox3D" parent="World" unique_id=1859387800]
 transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, -1.8303702, 0, -1.7791147)
+material_override = SubResource("StandardMaterial3D_ya3qd")
 size = Vector3(10.996826, 1, 1)
 
 [node name="MeshInstance3D3" type="CSGBox3D" parent="World/MeshInstance3D2" unique_id=690204607]
@@ -189,6 +206,7 @@ size = Vector3(14.006561, 1, 1)
 
 [node name="Window_Wall" type="CSGBox3D" parent="World" unique_id=152572568]
 transform = Transform3D(-4.371139e-08, 0, 0.35627115, 0, 4.788, 0, -1, 0, -1.5573107e-08, 4.895754, 0, -1.740571)
+material_override = SubResource("StandardMaterial3D_njnst")
 size = Vector3(12.233337, 1, 1)
 
 [node name="MeshInstance3D4" type="CSGBox3D" parent="World/Window_Wall" unique_id=1040086561]
@@ -202,6 +220,7 @@ mesh = SubResource("BoxMesh_ojhqs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1235092824]
 transform = Transform3D(-0.55580425, -0.71993834, 0.4156565, 0.38027754, 0.22443435, 0.8972281, -0.7392365, 0.65674806, 0.14903474, 0, 7.7453923, 0)
+visible = false
 shadow_enabled = true
 
 [node name="View" type="Camera3D" parent="." unique_id=2081182020]
@@ -233,18 +252,21 @@ script = ExtResource("4_oly57")
 
 [node name="Pos_1" type="Sprite3D" parent="Enemy/Door_Enemy" unique_id=1285506893]
 unique_name_in_owner = true
-transform = Transform3D(1.024927, 0, 1.717418, 0, 2, 0, -1.717418, 0, 1.024927, -9.505014, -0.8385669, -2.2095227)
-texture = ExtResource("3_hh7rt")
+transform = Transform3D(1.0249271, 0, 1.7174182, 0.60949177, 1.8698174, -0.36373475, -1.6056292, 0.70977694, 0.95821327, -9.505014, -1.5542288, -2.2033508)
+pixel_size = 0.0015
+texture = ExtResource("11_ugd4x")
 
 [node name="Pos_2" type="Sprite3D" parent="Enemy/Door_Enemy" unique_id=1225739946]
 unique_name_in_owner = true
-transform = Transform3D(-0.8737143, 0, 1.2192718, 0, 1.5, 0, -1.2192718, 0, -0.8737143, -2.493997, 0.18619311, 2.404659)
-texture = ExtResource("3_hh7rt")
+transform = Transform3D(-0.4771808, 0, 1.4220756, 0, 1.5, 0, -1.4220756, 0, -0.4771808, -2.493997, -1.1545031, 1.0575478)
+pixel_size = 0.0015
+texture = ExtResource("11_ugd4x")
 
 [node name="Pos_3" type="Sprite3D" parent="Enemy/Door_Enemy" unique_id=293195996]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6685178, -1.4002426, 0.8366108)
-texture = ExtResource("3_hh7rt")
+pixel_size = 0.002
+texture = ExtResource("11_ugd4x")
 
 [node name="Vent_Enemy" type="Node3D" parent="Enemy" unique_id=1346954349]
 unique_name_in_owner = true
@@ -255,18 +277,21 @@ script = ExtResource("6_iajbn")
 
 [node name="vePos_1" type="Sprite3D" parent="Enemy/Vent_Enemy" unique_id=771857638]
 unique_name_in_owner = true
-transform = Transform3D(1.4900852, -0.16238666, 0.057240233, 0.17153391, 1.4432136, -0.3710934, -0.014899433, 0.37518635, 1.4522442, 2.3770819, 0.827222, -11.764341)
-texture = ExtResource("3_hh7rt")
+transform = Transform3D(1.4900852, -0.16238666, 0.057240233, 0.17153391, 1.4432136, -0.3710934, -0.014899433, 0.37518635, 1.4522442, 2.3770819, 0.6865736, -8.6763735)
+pixel_size = 0.001
+texture = ExtResource("14_kaab1")
 
 [node name="vePos_2" type="Sprite3D" parent="Enemy/Vent_Enemy" unique_id=2122165956]
 unique_name_in_owner = true
-transform = Transform3D(1.4132103, 0.49016586, -0.11213496, -0.46992537, 1.1684549, -0.81478953, -0.1789048, 0.802776, 1.2544096, 2.3770819, 0.827222, -9.663852)
-texture = ExtResource("3_hh7rt")
+transform = Transform3D(1.4132103, 0.49016586, -0.11213496, -0.46992537, 1.1684549, -0.81478953, -0.1789048, 0.802776, 1.2544096, 2.6763868, 0.827222, -6.5264096)
+pixel_size = 0.001
+texture = ExtResource("14_kaab1")
 
 [node name="vePos_3" type="Sprite3D" parent="Enemy/Vent_Enemy" unique_id=263461310]
 unique_name_in_owner = true
-transform = Transform3D(1.4900852, -0.16238666, 0.057240233, 0.16892946, 1.4752399, -0.21243782, -0.033297263, 0.21748012, 1.4837769, 2.3770819, 0.827222, -6.871718)
-texture = ExtResource("3_hh7rt")
+transform = Transform3D(1.4900852, -0.16238666, 0.057240233, 0.16892946, 1.4752399, -0.21243782, -0.033297263, 0.21748012, 1.4837769, 0.6432433, -0.012208462, -5.9608555)
+pixel_size = 0.0015
+texture = ExtResource("14_kaab1")
 
 [node name="Window_Enemy" type="Node3D" parent="Enemy" unique_id=44195928]
 unique_name_in_owner = true
@@ -277,15 +302,18 @@ script = ExtResource("4_oly57")
 
 [node name="wwPos_1" type="Sprite3D" parent="Enemy/Window_Enemy" unique_id=1876460138]
 unique_name_in_owner = true
-transform = Transform3D(-0.069459036, -0.20454808, -1.4843638, 0.168902, 1.4754179, -0.2112188, 1.4888409, -0.17692204, -0.045288306, 5.8386984, -2.7010136, -0.36085618)
-texture = ExtResource("3_hh7rt")
+transform = Transform3D(-0.095176585, -0.4342126, -1.4326204, 0.15586488, 1.4248359, -0.44220814, 1.4888409, -0.17692205, -0.045288302, 5.8386984, -2.3431194, -0.36085618)
+pixel_size = 0.0015
+texture = ExtResource("16_pj4of")
 
 [node name="wwPos_2" type="Sprite3D" parent="Enemy/Window_Enemy" unique_id=1903757002]
 unique_name_in_owner = true
-transform = Transform3D(-0.069459036, -0.20454808, -1.4843638, 0.168902, 1.4754179, -0.2112188, 1.4888409, -0.17692204, -0.045288306, 5.8386984, -1.2861052, -0.36085618)
-texture = ExtResource("3_hh7rt")
+transform = Transform3D(-0.069459036, -0.20454808, -1.4843638, 0.168902, 1.4754179, -0.2112188, 1.4888409, -0.17692204, -0.045288306, 5.253101, -0.92661405, -0.36085618)
+pixel_size = 0.0015
+texture = ExtResource("16_pj4of")
 
 [node name="wwPos_3" type="Sprite3D" parent="Enemy/Window_Enemy" unique_id=1996740899]
 unique_name_in_owner = true
-transform = Transform3D(-0.069459036, -0.20454808, -1.4843638, 0.168902, 1.4754179, -0.2112188, 1.4888409, -0.17692204, -0.045288306, 4.5395856, -0.17955709, -0.5696079)
-texture = ExtResource("3_hh7rt")
+transform = Transform3D(-0.069459036, -0.20454808, -1.4843638, 0.168902, 1.4754179, -0.2112188, 1.4888409, -0.17692204, -0.045288306, 2.925177, -0.17955709, -0.5696079)
+pixel_size = 0.0015
+texture = ExtResource("16_pj4of")

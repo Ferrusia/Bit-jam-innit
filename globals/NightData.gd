@@ -5,7 +5,7 @@ var AI: Dictionary = {
 		"DoorMan": 20,
 		"WindowWoman": 20,
 		"Vent_Enemy": 20,
-		"FeetLover": 20,
+		"FeetLover": 0,
 	},
 	"Night_2": {
 		"DoorMan": 7,
